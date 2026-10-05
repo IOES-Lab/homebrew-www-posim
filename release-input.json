@@ -1,5 +1,5 @@
 {
-  "tag": "v0.3.3",
+  "tag": "v0.3.4",
   "native_acceptance": {
     "passed": true,
     "tested_archive_sha256": "03fbf245ffff6aba7110ef098737504ad346cba438238e6e71ebdf1df7598cef",
@@ -22,14 +22,14 @@
   },
   "dmg_acceptance": {
     "passed": true,
-    "dmg": "WWW-POSIM-0.3.3-macos-arm64.dmg",
-    "sha256": "850fa85a7009be90c187051329d2d4d13bfddcb7a2c5ee121dd7444acf2650cc",
+    "dmg": "WWW-POSIM-0.3.4-macos-arm64.dmg",
+    "sha256": "15de186dbab8f3c1b403ca2d0ccd7a50cfd7f64ff94fdc29ab47296d24458a68",
     "staged_signature_verified": true,
     "mounted_signature_verified": true,
-    "mounted_version": "WWW-POSIM 0.3.3",
+    "mounted_version": "WWW-POSIM 0.3.4",
     "mounted_diagnostic": {
       "application": "WWW-POSIM",
-      "version": "0.3.3",
+      "version": "0.3.4",
       "platform": "Darwin",
       "architecture": "arm64",
       "engine_mode": "native-metal",
@@ -40,40 +40,46 @@
   },
   "assets": [
     {
-      "name": "WWW-POSIM-0.3.3-macos-arm64.dmg",
-      "url": "https://hypothesis-composer-instruction-cup.trycloudflare.com/guide/packages/WWW-POSIM-0.3.3-macos-arm64.dmg",
-      "bytes": 1349147630,
-      "sha256": "850fa85a7009be90c187051329d2d4d13bfddcb7a2c5ee121dd7444acf2650cc"
+      "name": "WWW-POSIM-0.3.4-macos-arm64.dmg",
+      "url": "https://person-exhaust-connections-tackle.trycloudflare.com/guide/packages/WWW-POSIM-0.3.4-macos-arm64.dmg",
+      "bytes": 1349711737,
+      "sha256": "15de186dbab8f3c1b403ca2d0ccd7a50cfd7f64ff94fdc29ab47296d24458a68"
     },
     {
-      "name": "WWW-POSIM-0.3.3-windows-x64.exe",
-      "url": "https://hypothesis-composer-instruction-cup.trycloudflare.com/guide/packages/WWW-POSIM-0.3.3-windows-x64.exe",
-      "bytes": 10542825,
-      "sha256": "fc5e00c8c0b317e22f93c129dd6f4eb6deab6f762cb5193a90edcad0928cfda6"
+      "name": "WWW-POSIM-0.3.4-macos-arm64-app.zip",
+      "url": "https://person-exhaust-connections-tackle.trycloudflare.com/guide/packages/WWW-POSIM-0.3.4-macos-arm64-app.zip",
+      "bytes": 12702848,
+      "sha256": "abbaa10ed35fa23d294e9987b53c9cd815ad786a5d4c4e9ec91e237bcc35abd6"
     },
     {
-      "name": "www-posim_0.3.3_amd64.deb",
-      "url": "https://hypothesis-composer-instruction-cup.trycloudflare.com/guide/packages/www-posim_0.3.3_amd64.deb",
-      "bytes": 19240624,
-      "sha256": "10ee0cdd9b037099e5d8ee0ed7ec0fca1814dce747dae04631b215a919bda030"
+      "name": "www-posim_0.3.4_amd64.deb",
+      "url": "https://person-exhaust-connections-tackle.trycloudflare.com/guide/packages/www-posim_0.3.4_amd64.deb",
+      "bytes": 19532932,
+      "sha256": "083829336242ec64741344f943a2ac4a17802eca20b2b3e3bf0a1ac3fb573b13"
+    },
+    {
+      "name": "WWW-POSIM-0.3.4-windows-x64.exe",
+      "url": "https://person-exhaust-connections-tackle.trycloudflare.com/guide/packages/WWW-POSIM-0.3.4-windows-x64.exe",
+      "bytes": 10806318,
+      "sha256": "ef69450c6922da44419c83b5329e98e621ac7bd12a56edad8d44bc30fa540a22"
     },
     {
       "name": "www_posim_ros-0.3.0-py3-none-any.whl",
-      "url": "https://hypothesis-composer-instruction-cup.trycloudflare.com/guide/packages/www_posim_ros-0.3.0-py3-none-any.whl",
+      "url": "https://person-exhaust-connections-tackle.trycloudflare.com/guide/packages/www_posim_ros-0.3.0-py3-none-any.whl",
       "bytes": 10144,
       "sha256": "179a7dd026b23739caccd90e0aa2201ea95f46db42005046cdd229d4107c3199"
     },
     {
       "name": "SHA256SUMS",
-      "url": "https://hypothesis-composer-instruction-cup.trycloudflare.com/guide/packages/SHA256SUMS",
-      "bytes": 391,
-      "sha256": "098242fbe5d5d20de94e20840673e7de6a013af7173c3ab18a0985ea1d86dd4a"
+      "url": "https://person-exhaust-connections-tackle.trycloudflare.com/guide/packages/SHA256SUMS",
+      "bytes": 493,
+      "sha256": "bca5c862511df172938567f7439b427f1be5e150b8523626ed7c05089e2a1df3"
     },
     {
       "name": "simulator-packages.json",
-      "url": "https://hypothesis-composer-instruction-cup.trycloudflare.com/guide/packages/simulator-packages.json",
-      "bytes": 1702,
-      "sha256": "ac6b0f41989f31413a10777f067dcacb322238b046213cd33876316dee71367a"
+      "url": "https://person-exhaust-connections-tackle.trycloudflare.com/guide/packages/simulator-packages.json",
+      "bytes": 2078,
+      "sha256": "250ec33372461eece7784aa1a7799c06b4aa15a251655e232d57759327658d8e"
     }
   ]
 }
