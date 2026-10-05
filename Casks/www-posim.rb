@@ -5,6 +5,7 @@ cask "www-posim" do
   name "WWW-POSIM"
   desc "Ocean robot simulator with native ROS, Gazebo and Metal rendering"
   homepage "https://lab.wschoi.com"
+  disable! date: "2026-10-05", because: "fails the DMG signature check; use the patched release"
   depends_on arch: :arm64
   depends_on macos: :golden_gate
   app "WWW-POSIM.app"
