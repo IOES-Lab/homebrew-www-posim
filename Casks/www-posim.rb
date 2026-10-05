@@ -6,6 +6,6 @@ cask "www-posim" do
   desc "Ocean robot simulator with native ROS, Gazebo and Metal rendering"
   homepage "https://lab.wschoi.com"
   depends_on arch: :arm64
-  depends_on macos: ">= 27.0"
+  depends_on macos: :golden_gate
   app "WWW-POSIM.app"
 end

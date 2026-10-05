@@ -6,6 +6,7 @@ The Mac application includes ROS 2, Gazebo, Metal rendering, Autopilot and the s
 
 ```sh
 brew tap woensug-choi/www-posim
+brew trust --cask woensug-choi/www-posim/www-posim
 brew install --cask www-posim
 ```
 
