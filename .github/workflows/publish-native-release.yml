@@ -1,4 +1,4 @@
-name: Publish tested native Mac release
+name: Publish tested simulator packages
 
 on:
   workflow_dispatch:
@@ -65,7 +65,7 @@ jobs:
             gh release upload "$tag" release-assets/* --repo "$GITHUB_REPOSITORY" --clobber
           else
             gh release create "$tag" release-assets/* --repo "$GITHUB_REPOSITORY" \
-              --target main --title "WWW-POSIM ${tag#v} · Native Apple Silicon" \
+              --target main --title "WWW-POSIM ${tag#v} · Simulator packages" \
               --notes-file RELEASE.md
           fi
           if [ "$tag" = "v0.3.1" ] && gh release view v0.3.0 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then

@@ -1,61 +1,79 @@
 {
-  "tag": "v0.3.1",
+  "tag": "v0.3.3",
   "native_acceptance": {
     "passed": true,
-    "tested_archive_sha256": "964c8b6d0e2c54abbacced723ec9474290b0c6dc66c5fc8cf5fce9caebff11e3",
+    "tested_archive_sha256": "03fbf245ffff6aba7110ef098737504ad346cba438238e6e71ebdf1df7598cef",
     "original_build_prefix_hidden": true,
     "autopilot_robots": [
       "bluerov2",
       "wamv"
     ],
-    "local_ros_displacement_m": 9.210415770879589,
+    "local_ros_displacement_m": 9.16014915818237,
     "sensor_messages": {
       "camera": 17,
       "imu": 85,
-      "lidar": 84,
-      "odometry": 86,
+      "lidar": 82,
+      "odometry": 85,
       "clock": 86
     },
-    "transport_callback_gap_seconds": 0.006116583943367004,
+    "transport_callback_gap_seconds": 0.0069177079712972045,
     "supervisor_exit_code": 0,
     "shutdown_faults": []
   },
   "dmg_acceptance": {
     "passed": true,
-    "dmg": "WWW-POSIM-0.3.1-macos-arm64.dmg",
-    "sha256": "2eff9fcec6ade2609d8357ecf1d570ba6b59509f539b06e2cbe8d05376d51f06",
+    "dmg": "WWW-POSIM-0.3.3-macos-arm64.dmg",
+    "sha256": "850fa85a7009be90c187051329d2d4d13bfddcb7a2c5ee121dd7444acf2650cc",
     "staged_signature_verified": true,
     "mounted_signature_verified": true,
-    "mounted_version": "WWW-POSIM 0.3.1",
+    "mounted_version": "WWW-POSIM 0.3.3",
     "mounted_diagnostic": {
       "application": "WWW-POSIM",
-      "version": "0.3.1",
+      "version": "0.3.3",
       "platform": "Darwin",
       "architecture": "arm64",
       "engine_mode": "native-metal",
       "native_engine_included": true,
       "data_files": true
     },
-    "engine_sha256": "964c8b6d0e2c54abbacced723ec9474290b0c6dc66c5fc8cf5fce9caebff11e3"
+    "engine_sha256": "03fbf245ffff6aba7110ef098737504ad346cba438238e6e71ebdf1df7598cef"
   },
   "assets": [
     {
-      "name": "WWW-POSIM-0.3.1-macos-arm64.dmg",
-      "url": "https://hypothesis-composer-instruction-cup.trycloudflare.com/guide/packages/WWW-POSIM-0.3.1-macos-arm64.dmg",
-      "bytes": 1528986625,
-      "sha256": "2eff9fcec6ade2609d8357ecf1d570ba6b59509f539b06e2cbe8d05376d51f06"
+      "name": "WWW-POSIM-0.3.3-macos-arm64.dmg",
+      "url": "https://hypothesis-composer-instruction-cup.trycloudflare.com/guide/packages/WWW-POSIM-0.3.3-macos-arm64.dmg",
+      "bytes": 1349147630,
+      "sha256": "850fa85a7009be90c187051329d2d4d13bfddcb7a2c5ee121dd7444acf2650cc"
+    },
+    {
+      "name": "WWW-POSIM-0.3.3-windows-x64.exe",
+      "url": "https://hypothesis-composer-instruction-cup.trycloudflare.com/guide/packages/WWW-POSIM-0.3.3-windows-x64.exe",
+      "bytes": 10542825,
+      "sha256": "fc5e00c8c0b317e22f93c129dd6f4eb6deab6f762cb5193a90edcad0928cfda6"
+    },
+    {
+      "name": "www-posim_0.3.3_amd64.deb",
+      "url": "https://hypothesis-composer-instruction-cup.trycloudflare.com/guide/packages/www-posim_0.3.3_amd64.deb",
+      "bytes": 19240624,
+      "sha256": "10ee0cdd9b037099e5d8ee0ed7ec0fca1814dce747dae04631b215a919bda030"
+    },
+    {
+      "name": "www_posim_ros-0.3.0-py3-none-any.whl",
+      "url": "https://hypothesis-composer-instruction-cup.trycloudflare.com/guide/packages/www_posim_ros-0.3.0-py3-none-any.whl",
+      "bytes": 10144,
+      "sha256": "179a7dd026b23739caccd90e0aa2201ea95f46db42005046cdd229d4107c3199"
     },
     {
       "name": "SHA256SUMS",
       "url": "https://hypothesis-composer-instruction-cup.trycloudflare.com/guide/packages/SHA256SUMS",
-      "bytes": 288,
-      "sha256": "c75417bd08fc46f82e554e82cb2de83cb1daf287354f560968b5d9429ccaf799"
+      "bytes": 391,
+      "sha256": "098242fbe5d5d20de94e20840673e7de6a013af7173c3ab18a0985ea1d86dd4a"
     },
     {
       "name": "simulator-packages.json",
       "url": "https://hypothesis-composer-instruction-cup.trycloudflare.com/guide/packages/simulator-packages.json",
       "bytes": 1702,
-      "sha256": "e8aa4eece2abe4b462c915dd28a3add0bd29bbc977c78050eb4f33b4e54a71cb"
+      "sha256": "ac6b0f41989f31413a10777f067dcacb322238b046213cd33876316dee71367a"
     }
   ]
 }
