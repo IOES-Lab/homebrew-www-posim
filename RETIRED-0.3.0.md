@@ -1,0 +1,1 @@
+The macOS 0.3.0 installer is withdrawn because its DMG staging did not preserve signed app symbolic links. Use [0.3.1](https://github.com/woensug-choi/homebrew-www-posim/releases/tag/v0.3.1), which verifies the signature and launcher inside the mounted DMG. The native engine archive itself is unchanged and retains its sensor, Autopilot and local ROS acceptance.

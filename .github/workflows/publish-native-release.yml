@@ -31,6 +31,13 @@ jobs:
           assert data['native_acceptance']['original_build_prefix_hidden'] is True
           assert data['native_acceptance']['autopilot_robots']==['bluerov2','wamv']
           assert data['native_acceptance']['local_ros_displacement_m']>=2
+          proof=data['dmg_acceptance']
+          assert proof['passed'] and proof['staged_signature_verified'] and proof['mounted_signature_verified']
+          assert proof['mounted_diagnostic']['engine_mode']=='native-metal'
+          assert proof['mounted_diagnostic']['native_engine_included'] is True
+          assert proof['mounted_version']=='WWW-POSIM '+data['tag'][1:]
+          assert proof['engine_sha256']==data['native_acceptance']['tested_archive_sha256']
+          assert any(a['name']==proof['dmg'] and a['sha256']==proof['sha256'] for a in data['assets'])
           folder=Path('release-assets');folder.mkdir()
           for entry in data['assets']:
             assert re.fullmatch(r'[A-Za-z0-9_.-]+',entry['name'])
@@ -60,4 +67,7 @@ jobs:
             gh release create "$tag" release-assets/* --repo "$GITHUB_REPOSITORY" \
               --target main --title "WWW-POSIM ${tag#v} · Native Apple Silicon" \
               --notes-file RELEASE.md
+          fi
+          if [ "$tag" = "v0.3.1" ] && gh release view v0.3.0 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release edit v0.3.0 --repo "$GITHUB_REPOSITORY" --notes-file RETIRED-0.3.0.md
           fi

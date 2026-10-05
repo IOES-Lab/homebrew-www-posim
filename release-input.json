@@ -1,5 +1,5 @@
 {
-  "tag": "v0.3.0",
+  "tag": "v0.3.1",
   "native_acceptance": {
     "passed": true,
     "tested_archive_sha256": "964c8b6d0e2c54abbacced723ec9474290b0c6dc66c5fc8cf5fce9caebff11e3",
@@ -20,24 +20,42 @@
     "supervisor_exit_code": 0,
     "shutdown_faults": []
   },
+  "dmg_acceptance": {
+    "passed": true,
+    "dmg": "WWW-POSIM-0.3.1-macos-arm64.dmg",
+    "sha256": "2eff9fcec6ade2609d8357ecf1d570ba6b59509f539b06e2cbe8d05376d51f06",
+    "staged_signature_verified": true,
+    "mounted_signature_verified": true,
+    "mounted_version": "WWW-POSIM 0.3.1",
+    "mounted_diagnostic": {
+      "application": "WWW-POSIM",
+      "version": "0.3.1",
+      "platform": "Darwin",
+      "architecture": "arm64",
+      "engine_mode": "native-metal",
+      "native_engine_included": true,
+      "data_files": true
+    },
+    "engine_sha256": "964c8b6d0e2c54abbacced723ec9474290b0c6dc66c5fc8cf5fce9caebff11e3"
+  },
   "assets": [
     {
-      "name": "WWW-POSIM-0.3.0-macos-arm64.dmg",
-      "url": "https://hypothesis-composer-instruction-cup.trycloudflare.com/guide/packages/WWW-POSIM-0.3.0-macos-arm64.dmg",
-      "bytes": 1541021245,
-      "sha256": "1fb36d33a8a656ea33cb948f43d0820f57a71fe6cd575e734af231d1ae3f780a"
+      "name": "WWW-POSIM-0.3.1-macos-arm64.dmg",
+      "url": "https://hypothesis-composer-instruction-cup.trycloudflare.com/guide/packages/WWW-POSIM-0.3.1-macos-arm64.dmg",
+      "bytes": 1528986625,
+      "sha256": "2eff9fcec6ade2609d8357ecf1d570ba6b59509f539b06e2cbe8d05376d51f06"
     },
     {
       "name": "SHA256SUMS",
       "url": "https://hypothesis-composer-instruction-cup.trycloudflare.com/guide/packages/SHA256SUMS",
       "bytes": 288,
-      "sha256": "37d285a7223c0520520e027b8a63495a27012244d7000cd3ae1d3896d7d9bad7"
+      "sha256": "c75417bd08fc46f82e554e82cb2de83cb1daf287354f560968b5d9429ccaf799"
     },
     {
       "name": "simulator-packages.json",
       "url": "https://hypothesis-composer-instruction-cup.trycloudflare.com/guide/packages/simulator-packages.json",
       "bytes": 1702,
-      "sha256": "709e068c35bc9d49c1a896ee74780f02188c543ad762a13f406f0273f65452ef"
+      "sha256": "e8aa4eece2abe4b462c915dd28a3add0bd29bbc977c78050eb4f33b4e54a71cb"
     }
   ]
 }
