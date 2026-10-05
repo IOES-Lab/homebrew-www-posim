@@ -1,0 +1,43 @@
+{
+  "tag": "v0.3.0",
+  "native_acceptance": {
+    "passed": true,
+    "tested_archive_sha256": "964c8b6d0e2c54abbacced723ec9474290b0c6dc66c5fc8cf5fce9caebff11e3",
+    "original_build_prefix_hidden": true,
+    "autopilot_robots": [
+      "bluerov2",
+      "wamv"
+    ],
+    "local_ros_displacement_m": 9.210415770879589,
+    "sensor_messages": {
+      "camera": 17,
+      "imu": 85,
+      "lidar": 84,
+      "odometry": 86,
+      "clock": 86
+    },
+    "transport_callback_gap_seconds": 0.006116583943367004,
+    "supervisor_exit_code": 0,
+    "shutdown_faults": []
+  },
+  "assets": [
+    {
+      "name": "WWW-POSIM-0.3.0-macos-arm64.dmg",
+      "url": "https://hypothesis-composer-instruction-cup.trycloudflare.com/guide/packages/WWW-POSIM-0.3.0-macos-arm64.dmg",
+      "bytes": 1541021245,
+      "sha256": "1fb36d33a8a656ea33cb948f43d0820f57a71fe6cd575e734af231d1ae3f780a"
+    },
+    {
+      "name": "SHA256SUMS",
+      "url": "https://hypothesis-composer-instruction-cup.trycloudflare.com/guide/packages/SHA256SUMS",
+      "bytes": 288,
+      "sha256": "37d285a7223c0520520e027b8a63495a27012244d7000cd3ae1d3896d7d9bad7"
+    },
+    {
+      "name": "simulator-packages.json",
+      "url": "https://hypothesis-composer-instruction-cup.trycloudflare.com/guide/packages/simulator-packages.json",
+      "bytes": 1702,
+      "sha256": "709e068c35bc9d49c1a896ee74780f02188c543ad762a13f406f0273f65452ef"
+    }
+  ]
+}
