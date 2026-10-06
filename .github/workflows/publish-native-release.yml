@@ -11,7 +11,7 @@ permissions:
 
 concurrency:
   group: native-release
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   publish:
@@ -22,7 +22,8 @@ jobs:
       - name: Download and verify the accepted installer
         run: |
           python3 - <<'PY'
-          import hashlib,json,re,subprocess
+          import hashlib,json,re,subprocess,math,shutil
+          from concurrent.futures import ThreadPoolExecutor
           from pathlib import Path
           from urllib.parse import urlparse
           data=json.loads(Path('release-input.json').read_text())
@@ -47,9 +48,30 @@ jobs:
             assert url.path.startswith('/guide/packages/') and not url.query
             assert re.fullmatch(r'[0-9a-f]{64}',entry['sha256'])
             target=folder/entry['name']
-            subprocess.run(['curl','--fail','--location','--silent','--show-error',
-              '--retry','5','--connect-timeout','20','--max-time','2700',
-              '--output',str(target),entry['url']],check=True)
+            # Bounded ranges avoid one slow trans-Pacific TCP connection.
+            count=min(12,max(1,math.ceil(entry['bytes']/(4*1024*1024))))
+            if count==1:
+              subprocess.run(['curl','--fail','--location','--silent','--show-error',
+                '--retry','5','--connect-timeout','20','--max-time','2700',
+                '--max-filesize',str(entry['bytes']),'--output',str(target),entry['url']],check=True)
+            else:
+              span=math.ceil(entry['bytes']/count)
+              def part(index):
+                start=index*span;end=min(entry['bytes'],start+span)-1
+                file=target.with_name(target.name+f'.part-{index}')
+                result=subprocess.run(['curl','--fail','--location','--silent','--show-error',
+                  '--retry','5','--connect-timeout','20','--max-time','2700',
+                  '--range',f'{start}-{end}','--max-filesize',str(end-start+1),
+                  '--write-out','%{http_code}','--output',str(file),entry['url']],
+                  check=True,capture_output=True,text=True)
+                assert result.stdout=='206' and file.stat().st_size==end-start+1
+                print(f"Verified range {index+1}/{count}: {entry['name']}",flush=True)
+                return file
+              with ThreadPoolExecutor(max_workers=count) as pool:parts=list(pool.map(part,range(count)))
+              with target.open('wb') as output:
+                for file in parts:
+                  with file.open('rb') as source:shutil.copyfileobj(source,output)
+                  file.unlink()
             assert target.stat().st_size==entry['bytes'], 'Incorrect byte count: '+entry['name']
             with target.open('rb') as stream:actual=hashlib.file_digest(stream,'sha256').hexdigest()
             assert actual==entry['sha256'], 'Incorrect checksum: '+entry['name']
