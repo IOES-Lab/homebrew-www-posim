@@ -1,25 +1,36 @@
-# WWW-POSIM distribution
+# IOES-Lab WWW-POSIM distribution
 
-Installer releases and Homebrew Cask metadata for WWW-POSIM, the World Wide Web Platform for Ocean Simulation.
+Homebrew tap `ioes-lab/www-posim`, installer releases and Cask metadata for WWW-POSIM, the World Wide Web Platform for Ocean Simulation.
 
-The Apple Silicon application includes ROS 2, Gazebo, Metal rendering, Autopilot and the browser workbench. Version 0.3.3 requires macOS 27 or later. Ubuntu and Windows releases contain compiled desktop clients that run the matching simulator Docker images. Release archives include upstream source and license notices.
+The Apple Silicon application includes ROS 2, Gazebo, Metal rendering, Autopilot and the browser workbench. Version 0.3.4 requires macOS 27 or later. Ubuntu and Windows releases contain compiled desktop clients that run the matching simulator Docker images. Release archives include upstream source and license notices.
 
 ```sh
-brew tap woensug-choi/www-posim
-brew trust --cask woensug-choi/www-posim/www-posim
-brew install --cask www-posim
+brew tap ioes-lab/www-posim
+brew trust --cask ioes-lab/www-posim/www-posim
+brew install --cask ioes-lab/www-posim/www-posim
 ```
+
+For an existing installation from the previous tap:
+
+```sh
+brew tap ioes-lab/www-posim
+brew trust --cask ioes-lab/www-posim/www-posim
+brew reinstall --cask ioes-lab/www-posim/www-posim
+brew untap woensug-choi/www-posim
+```
+
+User models, cached terrain and projects are stored outside the app and retained during reinstallation.
 
 If Homebrew requests `packages.arm64_dunno.jws.json` and returns HTTP 404 on macOS 27, update Homebrew's OS version support without its package API:
 
 ```sh
 HOMEBREW_NO_INSTALL_FROM_API=1 brew update
-HOMEBREW_NO_AUTO_UPDATE=1 brew tap woensug-choi/www-posim
-HOMEBREW_NO_AUTO_UPDATE=1 brew trust --cask woensug-choi/www-posim/www-posim
-HOMEBREW_NO_AUTO_UPDATE=1 brew install --cask woensug-choi/www-posim/www-posim
+HOMEBREW_NO_AUTO_UPDATE=1 brew tap ioes-lab/www-posim
+HOMEBREW_NO_AUTO_UPDATE=1 brew trust --cask ioes-lab/www-posim/www-posim
+HOMEBREW_NO_AUTO_UPDATE=1 brew install --cask ioes-lab/www-posim/www-posim
 ```
 
-These options apply only to the command they precede; see [Homebrew's environment options](https://docs.brew.sh/Manpage#environment). You can also download the [macOS DMG](https://github.com/woensug-choi/homebrew-www-posim/releases/download/v0.3.3/WWW-POSIM-0.3.3-macos-arm64.dmg) and drag the app to Applications.
+These options apply only to the command they precede; see [Homebrew's environment options](https://docs.brew.sh/Manpage#environment). You can also download the [macOS DMG](https://github.com/IOES-Lab/homebrew-www-posim/releases/download/v0.3.4/WWW-POSIM-0.3.4-macos-arm64.dmg) and drag the app to Applications.
 
 On Mac, the first launch unpacks the native engine once. Sign in with an account server URL and your email account. User projects and terrain are stored outside the application. The development Mac distribution uses ad-hoc signatures rather than Apple notarization.
 
