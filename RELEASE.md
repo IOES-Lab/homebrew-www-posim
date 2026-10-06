@@ -1,4 +1,4 @@
-WWW-POSIM 0.3.7 updates the native Mac workbench with readable navy panels, lime active controls, coral stop/abort controls, compact mobile panels, NED position display and camera latitude/longitude/speed. The signed app bundles the workbench and robot assets separately from the accepted ROS/Gazebo engine. Matching-engine app-only updates reuse that engine rather than downloading it again.
+WWW-POSIM 0.3.8 updates the native Mac workbench with readable navy panels, lime active controls, coral stop/abort controls, compact mobile panels, NED position display and camera latitude/longitude/speed. The signed app bundles the workbench and robot assets separately from the accepted ROS/Gazebo engine. Matching-engine app-only updates reuse that engine rather than downloading it again.
 
 Sign in with your email. The platform account address is provided automatically. Runtime licensing and account checks still apply. Engine version differences remain advisory, with an optional update button and visible startup progress.
 

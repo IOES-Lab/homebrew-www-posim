@@ -1,5 +1,5 @@
 {
-  "tag": "v0.3.7",
+  "tag": "v0.3.8",
   "native_acceptance": {
     "passed": true,
     "tested_archive_sha256": "964c8b6d0e2c54abbacced723ec9474290b0c6dc66c5fc8cf5fce9caebff11e3",
@@ -22,14 +22,14 @@
   },
   "dmg_acceptance": {
     "passed": true,
-    "dmg": "WWW-POSIM-0.3.7-macos-arm64.dmg",
-    "sha256": "339ff05a1b62bea0669312bbd551fde975eb7ede91869b546ea253849d7f89fb",
+    "dmg": "WWW-POSIM-0.3.8-macos-arm64.dmg",
+    "sha256": "926a23f7875b8b19940115496bb4130fb91798b6351202f6c9857af71932d6f2",
     "staged_signature_verified": true,
     "mounted_signature_verified": true,
-    "mounted_version": "WWW-POSIM 0.3.7",
+    "mounted_version": "WWW-POSIM 0.3.8",
     "mounted_diagnostic": {
       "application": "WWW-POSIM",
-      "version": "0.3.7",
+      "version": "0.3.8",
       "platform": "Darwin",
       "architecture": "arm64",
       "engine_mode": "native-metal",
@@ -40,16 +40,16 @@
   },
   "assets": [
     {
-      "name": "WWW-POSIM-0.3.7-macos-arm64.dmg",
-      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.3.7-macos-arm64.dmg",
-      "bytes": 1577373111,
-      "sha256": "339ff05a1b62bea0669312bbd551fde975eb7ede91869b546ea253849d7f89fb"
+      "name": "WWW-POSIM-0.3.8-macos-arm64.dmg",
+      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.3.8-macos-arm64.dmg",
+      "bytes": 1578283691,
+      "sha256": "926a23f7875b8b19940115496bb4130fb91798b6351202f6c9857af71932d6f2"
     },
     {
-      "name": "WWW-POSIM-0.3.7-macos-arm64-app.zip",
-      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.3.7-macos-arm64-app.zip",
-      "bytes": 44592796,
-      "sha256": "548ba64e110561e08c7df11c07f06c76a4b936b124ec49c92dad24829e1f4c6e"
+      "name": "WWW-POSIM-0.3.8-macos-arm64-app.zip",
+      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.3.8-macos-arm64-app.zip",
+      "bytes": 44588648,
+      "sha256": "56b1726609d073d4f0fb9d955954f27fd3a25c518acc34d5517741e6b8c27507"
     },
     {
       "name": "www_posim_ros-0.3.0-py3-none-any.whl",
@@ -61,13 +61,13 @@
       "name": "SHA256SUMS",
       "url": "https://api.wschoi.com:8008/guide/packages/SHA256SUMS",
       "bytes": 303,
-      "sha256": "379354c35be2e5c27493ccf65fb5ad2bde042d7448c56014e7f1161bc4edfbe0"
+      "sha256": "c055f66aea8283ed58214d58d7f0f01228dcb9be367435693f2e5822c33ab9a8"
     },
     {
       "name": "simulator-packages.json",
       "url": "https://api.wschoi.com:8008/guide/packages/simulator-packages.json",
       "bytes": 1692,
-      "sha256": "2862a903d5029a41ca349550c6c0f7b0f7592ef2053e0474c365a85245c1d2a5"
+      "sha256": "9760df47c632bfd64f1d4e7906d6aed3de8f9f505316d738991aa3e7fd6fd4d3"
     }
   ]
 }

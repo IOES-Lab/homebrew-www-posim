@@ -93,3 +93,27 @@ jobs:
           if [ "$tag" = "v0.3.1" ] && gh release view v0.3.0 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
             gh release edit v0.3.0 --repo "$GITHUB_REPOSITORY" --notes-file RETIRED-0.3.0.md
           fi
+      - name: Update Homebrew only after the verified release is available
+        run: |
+          python3 - <<'PYCODE'
+          import json
+          from pathlib import Path
+          data=json.loads(Path('release-input.json').read_text())
+          name=data['dmg_acceptance']['dmg']
+          file=next(a for a in data['assets'] if a['name']==name)
+          version=data['tag'][1:]
+          url=f"https://github.com/IOES-Lab/homebrew-www-posim/releases/download/{data['tag']}/{name}"
+          cask=['cask "www-posim" do',f'  version "{version}"',f'  sha256 "{file["sha256"]}"',
+            f'  url "{url}"','  name "WWW-POSIM"',
+            '  desc "Ocean robot simulator with native ROS, Gazebo and Metal rendering"',
+            '  homepage "https://lab.wschoi.com"','  depends_on arch: :arm64',
+            '  depends_on macos: :golden_gate','  app "WWW-POSIM.app"','end']
+          Path('Casks/www-posim.rb').write_text('\n'.join(cask)+'\n')
+          PYCODE
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add Casks/www-posim.rb
+          if ! git diff --cached --quiet; then
+            git commit -m "Update Homebrew to verified $(cat release-tag.txt)"
+            git push origin HEAD:main
+          fi
