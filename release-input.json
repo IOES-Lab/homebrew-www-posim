@@ -1,5 +1,5 @@
 {
-  "tag": "v0.4.3",
+  "tag": "v0.4.4",
   "native_acceptance": {
     "passed": true,
     "tested_archive_sha256": "00de239fb18dcd18448b22b351b512ed239f202d189dbf619cb6f4d8c202a08c",
@@ -22,14 +22,14 @@
   },
   "dmg_acceptance": {
     "passed": true,
-    "dmg": "WWW-POSIM-0.4.3-macos-arm64.dmg",
-    "sha256": "73cf0e3996b85cbcabb74997877cdbab9603f64fb45728d9d08ba34a82543807",
+    "dmg": "WWW-POSIM-0.4.4-macos-arm64.dmg",
+    "sha256": "dc507da6ddfd672cbee9ea7564a6e84d0b323f6968c9679598ddcf2680a9679f",
     "staged_signature_verified": true,
     "mounted_signature_verified": true,
-    "mounted_version": "WWW-POSIM 0.4.3",
+    "mounted_version": "WWW-POSIM 0.4.4",
     "mounted_diagnostic": {
       "application": "WWW-POSIM",
-      "version": "0.4.3",
+      "version": "0.4.4",
       "platform": "Darwin",
       "architecture": "arm64",
       "engine_mode": "native-metal",
@@ -40,46 +40,46 @@
   },
   "assets": [
     {
-      "name": "WWW-POSIM-0.4.3-macos-arm64.dmg",
-      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.4.3-macos-arm64.dmg",
-      "bytes": 1570307394,
-      "sha256": "73cf0e3996b85cbcabb74997877cdbab9603f64fb45728d9d08ba34a82543807"
+      "name": "WWW-POSIM-0.4.4-macos-arm64.dmg",
+      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.4.4-macos-arm64.dmg",
+      "bytes": 1566118102,
+      "sha256": "dc507da6ddfd672cbee9ea7564a6e84d0b323f6968c9679598ddcf2680a9679f"
     },
     {
-      "name": "WWW-POSIM-0.4.3-macos-arm64-app.zip",
-      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.4.3-macos-arm64-app.zip",
-      "bytes": 102098776,
-      "sha256": "1f53108448b2adc2ad1850f7c5e772b6d3c8bf93741a3ddc3da1796640111bdb"
+      "name": "WWW-POSIM-0.4.4-windows-x64.exe",
+      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.4.4-windows-x64.exe",
+      "bytes": 12298376,
+      "sha256": "d6a8528cff6b1a4ec9e2e0a4036a78fda08858c2dda2e83be86f52d9fd18bef8"
     },
     {
-      "name": "www-posim_0.4.3_amd64.deb",
-      "url": "https://api.wschoi.com:8008/guide/packages/www-posim_0.4.3_amd64.deb",
-      "bytes": 21313418,
-      "sha256": "4ac4d9f8a5f18d20f94864c5aedd8e74eb1e4611192df8df60cedf306f8e4143"
+      "name": "www-posim_0.4.4_amd64.deb",
+      "url": "https://api.wschoi.com:8008/guide/packages/www-posim_0.4.4_amd64.deb",
+      "bytes": 21336692,
+      "sha256": "fd9e2e26c031bfe51a8fccf225746e594a60e8a20d920567f477abdd4da4342a"
     },
     {
-      "name": "WWW-POSIM-0.4.3-windows-x64.exe",
-      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.4.3-windows-x64.exe",
-      "bytes": 12298650,
-      "sha256": "e47490347d68339e132e058d67fe612ccb60c16d0bf549f0700dbb3d3073ce90"
+      "name": "WWW-POSIM-0.4.4-macos-arm64-app.zip",
+      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.4.4-macos-arm64-app.zip",
+      "bytes": 102158330,
+      "sha256": "76b6e1c7c740a3af62754ca7f8bbf9c28da127d309bc38cbc93a2affe8a11ad3"
     },
     {
       "name": "www_posim_ros-0.3.0-py3-none-any.whl",
       "url": "https://api.wschoi.com:8008/guide/packages/www_posim_ros-0.3.0-py3-none-any.whl",
       "bytes": 10144,
-      "sha256": "afcabcdef3e41009b6655f03a13e6bd50c2d384c206286b965bf4a6845698984"
+      "sha256": "26c520a352eef21376b282f0e48cbf2cda371b9c50f6815f464d60a3165dc639"
     },
     {
       "name": "SHA256SUMS",
       "url": "https://api.wschoi.com:8008/guide/packages/SHA256SUMS",
       "bytes": 493,
-      "sha256": "902460ba4d03b7804370d13d536c4efff08346c58faf4658879e289104567afa"
+      "sha256": "0e8135f4c36b3fb02992a3a73866a34ef0d9b193722bd882f7057e8cd3f577e0"
     },
     {
       "name": "simulator-packages.json",
       "url": "https://api.wschoi.com:8008/guide/packages/simulator-packages.json",
       "bytes": 2167,
-      "sha256": "ebe086fd7f0f80a1c857ca5ab1234a7e2f17e1de8e7e2f9e08eb957d115361d0"
+      "sha256": "5678953d7792d8840699b023ec5315de2c97760419a09f84665f1990597d1696"
     }
   ]
 }
