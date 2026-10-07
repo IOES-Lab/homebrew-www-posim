@@ -1,73 +1,85 @@
 {
-  "tag": "v0.4.1",
+  "tag": "v0.4.2",
   "native_acceptance": {
     "passed": true,
-    "tested_archive_sha256": "03fbf245ffff6aba7110ef098737504ad346cba438238e6e71ebdf1df7598cef",
+    "tested_archive_sha256": "00de239fb18dcd18448b22b351b512ed239f202d189dbf619cb6f4d8c202a08c",
     "original_build_prefix_hidden": true,
     "autopilot_robots": [
       "bluerov2",
       "wamv"
     ],
-    "local_ros_displacement_m": 9.16014915818237,
+    "local_ros_displacement_m": 8.940333672426435,
     "sensor_messages": {
-      "camera": 17,
-      "imu": 85,
-      "lidar": 82,
-      "odometry": 85,
-      "clock": 86
+      "camera": 14,
+      "imu": 83,
+      "lidar": 69,
+      "odometry": 83,
+      "clock": 84
     },
-    "transport_callback_gap_seconds": 0.0069177079712972045,
+    "transport_callback_gap_seconds": 0.003586833947338164,
     "supervisor_exit_code": 0,
     "shutdown_faults": []
   },
   "dmg_acceptance": {
     "passed": true,
-    "dmg": "WWW-POSIM-0.4.1-macos-arm64.dmg",
-    "sha256": "00fd6d4a4b50c8c19343536dbbdd1d7f934cae511adaf0d9a7d313966f215c96",
+    "dmg": "WWW-POSIM-0.4.2-macos-arm64.dmg",
+    "sha256": "36ea3a987643c7a5436455206b28c425be85e98e5bf62f91b61a08c5578434f7",
     "staged_signature_verified": true,
     "mounted_signature_verified": true,
-    "mounted_version": "WWW-POSIM 0.4.1",
+    "mounted_version": "WWW-POSIM 0.4.2",
     "mounted_diagnostic": {
       "application": "WWW-POSIM",
-      "version": "0.4.1",
+      "version": "0.4.2",
       "platform": "Darwin",
       "architecture": "arm64",
       "engine_mode": "native-metal",
       "native_engine_included": true,
       "data_files": true
     },
-    "engine_sha256": "03fbf245ffff6aba7110ef098737504ad346cba438238e6e71ebdf1df7598cef"
+    "engine_sha256": "00de239fb18dcd18448b22b351b512ed239f202d189dbf619cb6f4d8c202a08c"
   },
   "assets": [
     {
-      "name": "WWW-POSIM-0.4.1-macos-arm64.dmg",
-      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.4.1-macos-arm64.dmg",
-      "bytes": 1519596138,
-      "sha256": "00fd6d4a4b50c8c19343536dbbdd1d7f934cae511adaf0d9a7d313966f215c96"
+      "name": "WWW-POSIM-0.4.2-macos-arm64.dmg",
+      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.4.2-macos-arm64.dmg",
+      "bytes": 1565225182,
+      "sha256": "36ea3a987643c7a5436455206b28c425be85e98e5bf62f91b61a08c5578434f7"
     },
     {
-      "name": "WWW-POSIM-0.4.1-macos-arm64-app.zip",
-      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.4.1-macos-arm64-app.zip",
-      "bytes": 102074536,
-      "sha256": "d51e5e177dff1b0267ab35f68560f1dd5b227d74aa051e950530059eaf3b58b4"
+      "name": "WWW-POSIM-0.4.2-windows-x64.exe",
+      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.4.2-windows-x64.exe",
+      "bytes": 12297333,
+      "sha256": "f6ca8a30eef141a9af8489687734d87053bfb657f082100644a565a8db4ab894"
+    },
+    {
+      "name": "www-posim_0.4.2_amd64.deb",
+      "url": "https://api.wschoi.com:8008/guide/packages/www-posim_0.4.2_amd64.deb",
+      "bytes": 21314736,
+      "sha256": "03efc167bd86999b00ae302d15acfb370c5cc566fa5ef03bf9c91ad086152c02"
+    },
+    {
+      "name": "WWW-POSIM-0.4.2-macos-arm64-app.zip",
+      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.4.2-macos-arm64-app.zip",
+      "bytes": 102091227,
+      "sha256": "64eb2516e55e5849cd30f61ecb88ef240e7e74b98ab42d03b017479a89072f0f"
     },
     {
       "name": "www_posim_ros-0.3.0-py3-none-any.whl",
       "url": "https://api.wschoi.com:8008/guide/packages/www_posim_ros-0.3.0-py3-none-any.whl",
       "bytes": 10144,
-      "sha256": "179a7dd026b23739caccd90e0aa2201ea95f46db42005046cdd229d4107c3199"
+      "sha256": "afcabcdef3e41009b6655f03a13e6bd50c2d384c206286b965bf4a6845698984"
     },
     {
       "name": "SHA256SUMS",
       "url": "https://api.wschoi.com:8008/guide/packages/SHA256SUMS",
-      "bytes": 303,
-      "sha256": "e89341f921b95635c8cdc29a7cda2854b54e3f57b4272498edb641a82283f239"
+      "bytes": 493,
+      "sha256": "80b96a0e168b530cbc84f9d1a90dc84330fb19e7fdda1982efee28dd082f78b2"
     },
     {
       "name": "simulator-packages.json",
       "url": "https://api.wschoi.com:8008/guide/packages/simulator-packages.json",
-      "bytes": 1693,
-      "sha256": "1863b378ebaa80c463eb1180dfcdd9f7ef8f48d33daa50abd6c78c85a0c4dedb"
+      "bytes": 2167,
+      "sha256": "79649b7cf6e23524bab1ae6685d340650556d2506052b24c049ba3c25a836699"
     }
   ]
 }

@@ -1,7 +1,9 @@
-WWW-POSIM 0.3.8 updates the native Mac workbench with readable navy panels, lime active controls, coral stop/abort controls, compact mobile panels, NED position display and camera latitude/longitude/speed. The signed app bundles the workbench and robot assets separately from the accepted ROS/Gazebo engine. Matching-engine app-only updates reuse that engine rather than downloading it again.
+WWW-POSIM 0.4.2 includes rebuilt Apple Silicon Mac DMG and application-only update, Ubuntu AMD64 DEB and Windows x64 EXE installers. The Mac engine includes ROS 2 Lyrical, Gazebo Jetty 10, Metal rendering and surface/underwater Autopilot.
 
-Sign in with your email. The platform account address is provided automatically. Runtime licensing and account checks still apply. Engine version differences remain advisory, with an optional update button and visible startup progress.
+The exact relocatable native archive passed with its original build prefix hidden: WAM-V and BlueROV2 missions, cameras, LiDAR, IMU, local ROS sensor reception, 153 applied commands and 8.94m travel, and clean shutdown. Standalone ROS uses its own bridge port so public voyage and local robot telemetry remain separate. The mounted DMG app signature, version and engine were checked. Ubuntu and Windows compiled launchers passed installation and diagnostics in their platform CI; their local engines use matching Docker images.
 
-This release contains the tested Apple Silicon Mac DMG and app-only update, checksum manifest and ROS connector. The native Metal engine is unchanged from its accepted WAM-V/BlueROV2 sensor and local ROS-control validation. Mounted DMG execution, signatures, installed-workbench routing, bundled assets and signed update replacement/rollback checks passed. Linux and Windows 0.3.4 installers remain available in their existing release; this Mac release does not claim to update them.
+Sign in with your email. The account connection is automatic, with visible startup progress and optional updates. User files and terrain remain outside the application bundle. All ten feature videos and documentation illustrations were recaptured. Public LIVE uses one shared voyage and downloads media directly from the simulation origin.
 
-Mac requirements: Apple Silicon, macOS 27 or later. The development distribution is ad-hoc signed and is not Apple-notarized.
+Mac requirements: Apple Silicon, macOS 27 or later. The development app is ad-hoc signed, not Apple-notarized. Use SHA256SUMS to verify the downloaded packages. When the native engine matches, application-only updates reuse it.
+
+[Installation and ROS connection guide](https://www-posim.vercel.app/guide/downloads.html) · [Recorded features](https://www-posim.vercel.app/guide/features.html).
