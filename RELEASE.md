@@ -1,10 +1,9 @@
-WWW-POSIM 0.5.0 includes Apple Silicon Mac DMG and application-only updates, Ubuntu AMD64 DEB and Windows x64 EXE installers.
+WWW-POSIM 0.5.1 includes an Apple Silicon Mac DMG and application-only update, Ubuntu AMD64 DEB and Windows x64 EXE installers.
 
-- Server status shows current availability, 365 days of recorded checks and feature release notes.
-- Coastal voyages check mapped land and use clearer port approaches. The voyage visits Shenzhen Prince Bay after Hong Kong.
-- World, lead and follow views share live scene video, native camera data and sensor readings.
-- Speed-driven hull spray, a compact contact shade and coastal terrain blending improve vessel appearance.
-- Ten feature films show real satellite terrain, native missions, sensors, ROS tools and GUI interactions with click highlights.
+- POSIM uses upstream revision `487c922`, with subsecond pressure timestamps, bounded DVL layers, safe sensor shutdown, manual-control cleanup and world paths containing spaces.
+- The desktop voyage preview fills the available window height. Mobile layouts keep the scene and sensor panels readable.
+- The voyage visits 92 stops and uses the current coastal routing and rough-water thresholds.
+- Local ROS controllers have an acquisition grace window before their first command.
 
 The Mac app includes ROS 2 Lyrical, Gazebo Jetty 10, Metal rendering, surface and underwater Autopilot, and the web workspace. Application-only updates reuse a matching installed engine. Projects and terrain remain outside the app bundle.
 

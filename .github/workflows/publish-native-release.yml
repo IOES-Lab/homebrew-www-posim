@@ -137,11 +137,11 @@ jobs:
           file=next(a for a in data['assets'] if a['name']==name)
           version=data['tag'][1:]
           url=f"https://github.com/IOES-Lab/homebrew-www-posim/releases/download/{data['tag']}/{name}"
-          cask=['cask "www-posim" do',f'  version "{version}"',f'  sha256 "{file["sha256"]}"',
+          cask=['cask "www-posim" do',f'  version "{version}"',f'  sha256 "{file["sha256"]}"','',
             f'  url "{url}"','  name "WWW-POSIM"',
             '  desc "Ocean robot simulator with native ROS, Gazebo and Metal rendering"',
-            '  homepage "https://lab.wschoi.com"','  depends_on arch: :arm64',
-            '  depends_on macos: :golden_gate','  app "WWW-POSIM.app"','end']
+            '  homepage "https://lab.wschoi.com/"','','  depends_on arch: :arm64',
+            '  depends_on macos: :golden_gate','','  app "WWW-POSIM.app"','end']
           Path('Casks/www-posim.rb').write_text('\n'.join(cask)+'\n')
           PYCODE
           git config user.name github-actions[bot]
