@@ -1,5 +1,5 @@
 {
-  "tag": "v0.5.1",
+  "tag": "v0.5.2",
   "native_acceptance": {
     "passed": true,
     "tested_archive_sha256": "0f79f38156bb2a6daace052fc01e42cdfe99529b8211d41fc511aed22ee80236",
@@ -23,64 +23,65 @@
   },
   "dmg_acceptance": {
     "passed": true,
-    "dmg": "WWW-POSIM-0.5.1-macos-arm64.dmg",
-    "sha256": "edfbdaa77e102f8cacba43a88abd46b227946331acfc111e642206d473efbdb7",
+    "dmg": "WWW-POSIM-0.5.2-macos-arm64.dmg",
+    "sha256": "fbe25bbbe94d40919bc50ec7446a5bdf9427eae43406a7d04f1764008789a372",
     "staged_signature_verified": true,
     "mounted_signature_verified": true,
-    "mounted_version": "WWW-POSIM 0.5.1",
+    "mounted_version": "WWW-POSIM 0.5.2",
     "mounted_diagnostic": {
       "application": "WWW-POSIM",
-      "version": "0.5.1",
+      "version": "0.5.2",
       "platform": "Darwin",
       "architecture": "arm64",
       "engine_mode": "native-metal",
       "native_engine_included": true,
+      "docker_images": null,
       "data_files": true
     },
     "engine_sha256": "0f79f38156bb2a6daace052fc01e42cdfe99529b8211d41fc511aed22ee80236"
   },
   "assets": [
     {
-      "name": "WWW-POSIM-0.5.1-macos-arm64.dmg",
-      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.5.1-macos-arm64.dmg",
-      "bytes": 1589010246,
-      "sha256": "edfbdaa77e102f8cacba43a88abd46b227946331acfc111e642206d473efbdb7"
+      "name": "WWW-POSIM-0.5.2-macos-arm64.dmg",
+      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.5.2-macos-arm64.dmg",
+      "bytes": 1593216384,
+      "sha256": "fbe25bbbe94d40919bc50ec7446a5bdf9427eae43406a7d04f1764008789a372"
     },
     {
-      "name": "WWW-POSIM-0.5.1-macos-arm64-app.zip",
-      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.5.1-macos-arm64-app.zip",
-      "bytes": 101257337,
-      "sha256": "55dee50c9d0969aefb1eee79074af00f1c7d8296f604b70ad313be6ffce48a5c"
+      "name": "www-posim_0.5.2_amd64.deb",
+      "url": "https://api.wschoi.com:8008/guide/packages/www-posim_0.5.2_amd64.deb",
+      "bytes": 21320902,
+      "sha256": "1cab6f1c8d0fa214739a590c0d2396e91fb2c674ce512799ab3c6c27f5df5219"
     },
     {
-      "name": "WWW-POSIM-0.5.1-windows-x64.exe",
-      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.5.1-windows-x64.exe",
-      "bytes": 12298489,
-      "sha256": "cd8836a8983a15730bac1ed34f730b4b05ded367b9ad36c0e2929d1693ea5e0f"
+      "name": "WWW-POSIM-0.5.2-windows-x64.exe",
+      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.5.2-windows-x64.exe",
+      "bytes": 12295601,
+      "sha256": "7921daad6f8c6fe568a38678d2c76d148f454cd62198d42b02be5431f2793f76"
     },
     {
-      "name": "www-posim_0.5.1_amd64.deb",
-      "url": "https://api.wschoi.com:8008/guide/packages/www-posim_0.5.1_amd64.deb",
-      "bytes": 21335350,
-      "sha256": "e43278532a7857326b05fae75aab05110d319159a34627d54331b2f97703f17f"
+      "name": "WWW-POSIM-0.5.2-macos-arm64-app.zip",
+      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.5.2-macos-arm64-app.zip",
+      "bytes": 102257440,
+      "sha256": "5554c289d2f5e21ec3a23011b0414c0c63f1761d079a70ec7ff63eaf0f51cfea"
     },
     {
       "name": "www_posim_ros-0.3.0-py3-none-any.whl",
       "url": "https://api.wschoi.com:8008/guide/packages/www_posim_ros-0.3.0-py3-none-any.whl",
       "bytes": 10144,
-      "sha256": "70f5b62e73a6c60f56d2b8df37ac51e26beba95733e77cdf42ac92d3dcf629b5"
+      "sha256": "4182c21ccd7cedd5d89d8f6c560fccad4345fcbcbaba4df1ef4ae7d64a485ffe"
     },
     {
       "name": "SHA256SUMS",
       "url": "https://api.wschoi.com:8008/guide/packages/SHA256SUMS",
       "bytes": 493,
-      "sha256": "9343252d01d03947629143b2f5aa868c7fc62b3282d35907fad434c9b46c9406"
+      "sha256": "9cfce6f4b600ea5fd84dbc15b06d67cae789f29873273bb0aaed36a5294784d7"
     },
     {
       "name": "simulator-packages.json",
       "url": "https://api.wschoi.com:8008/guide/packages/simulator-packages.json",
       "bytes": 2287,
-      "sha256": "09c074b8569cea6e63d59fb361693973f14d30afdfa5b9ca7bd00a276fb58724"
+      "sha256": "ee7d04899b3b269d5263e56a288b4bae188ef55706fa854cda99ce65edeafa40"
     }
   ]
 }
