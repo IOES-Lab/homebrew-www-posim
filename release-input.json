@@ -1,23 +1,39 @@
 {
-  "tag": "v0.5.23",
+  "tag": "v0.5.25",
   "native_acceptance": {
     "passed": true,
-    "tested_archive_sha256": "959c66e95f3c15d461beee73256893ee48eb7d173675e4ed3424764f8506ecaa",
+    "tested_archive_sha256": "8c7a8ea88971b4e1b9b142dce6653f20812dbb3ab2fd078c8fdea303b12cb629",
+    "measured_gnss_navigation": {
+      "source": "gnss_imu",
+      "measurement_state": "fix",
+      "absolute_position_valid": true,
+      "gnss_fusion_observed": true,
+      "pose_frame": "fcu_map",
+      "passed": true
+    },
+    "packaged_demo_gnss_navigation": {
+      "source": "gnss_imu",
+      "measurement_state": "fix",
+      "absolute_position_valid": true,
+      "gnss_fusion_observed": true,
+      "pose_frame": "fcu_map",
+      "passed": true
+    },
     "original_build_prefix_hidden": true,
     "autopilot_robots": [
       "bluerov2",
       "wamv"
     ],
-    "local_ros_displacement_m": 9.501929832005153,
+    "local_ros_displacement_m": 9.14839769928321,
     "sensor_messages": {
       "camera": 18,
-      "imu": 86,
-      "lidar": 86,
-      "odometry": 86,
-      "clock": 87
+      "imu": 88,
+      "lidar": 87,
+      "odometry": 88,
+      "clock": 88
     },
-    "transport_callback_gap_seconds": 0.007407708093523979,
-    "transport_concurrent_messages_published": 5126,
+    "transport_callback_gap_seconds": 0.013705541990930215,
+    "transport_concurrent_messages_published": 4817,
     "synthetic_tutorial_plot_sha256": "04fc508a88657f36923d7371b571dacc549a2866427594313c68359553d2966b",
     "distant_water": {
       "source_sha256": "b98575aeb76a965d58708b0d524c1586fa6b73ce9e6d9bece176b3052b91a889",
@@ -30,18 +46,18 @@
   },
   "dmg_acceptance": {
     "passed": true,
-    "dmg": "WWW-POSIM-0.5.23-macos-arm64.dmg",
-    "sha256": "99dd05622daf442f4373ba6edd64993fe528dfce418ddd0839efe3745c1af6ce",
+    "dmg": "WWW-POSIM-0.5.25-macos-arm64.dmg",
+    "sha256": "37ee4f12484d2b47d659cb2257b41a6f664d9e448947d9de2d28a06e14ba62db",
     "staged_signature_verified": true,
     "mounted_signature_verified": true,
-    "mounted_version": "WWW-POSIM 0.5.23",
-    "app_executable_sha256": "252536fc47226dc0196b532d33d333ed790a45b6b71544b601715466ea9b136d",
-    "mounted_executable_sha256": "252536fc47226dc0196b532d33d333ed790a45b6b71544b601715466ea9b136d",
+    "mounted_version": "WWW-POSIM 0.5.25",
+    "app_executable_sha256": "9631783bf71a594253521f6f074cf66d40e9deacbfda8a15e2340b6e49660b9e",
+    "mounted_executable_sha256": "9631783bf71a594253521f6f074cf66d40e9deacbfda8a15e2340b6e49660b9e",
     "mounted_diagnostic": {
       "application": "WWW-POSIM",
       "edition": "release",
       "publishable": true,
-      "version": "0.5.23",
+      "version": "0.5.25",
       "platform": "Darwin",
       "architecture": "arm64",
       "engine_mode": "native-metal",
@@ -53,52 +69,52 @@
       "docker_images": null,
       "data_files": true
     },
-    "engine_sha256": "959c66e95f3c15d461beee73256893ee48eb7d173675e4ed3424764f8506ecaa",
+    "engine_sha256": "8c7a8ea88971b4e1b9b142dce6653f20812dbb3ab2fd078c8fdea303b12cb629",
     "edition": "release",
     "publishable": true
   },
   "assets": [
     {
-      "name": "WWW-POSIM-0.5.23-macos-arm64.dmg",
-      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.5.23-macos-arm64.dmg",
-      "bytes": 2044021123,
-      "sha256": "99dd05622daf442f4373ba6edd64993fe528dfce418ddd0839efe3745c1af6ce"
+      "name": "WWW-POSIM-0.5.25-macos-arm64.dmg",
+      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.5.25-macos-arm64.dmg",
+      "bytes": 2129876383,
+      "sha256": "37ee4f12484d2b47d659cb2257b41a6f664d9e448947d9de2d28a06e14ba62db"
     },
     {
-      "name": "WWW-POSIM-0.5.23-windows-x64.exe",
-      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.5.23-windows-x64.exe",
-      "bytes": 607774883,
-      "sha256": "16f5b9c521e10b5e6adba7e7984f62c3367c393ae0fc107e636b87cf3f8e10b7"
+      "name": "WWW-POSIM-0.5.25-windows-x64.exe",
+      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.5.25-windows-x64.exe",
+      "bytes": 607772315,
+      "sha256": "1a19902631fd216c12930c7b41f0d2b231a83866453328c401080d90be27b0ac"
     },
     {
-      "name": "WWW-POSIM-0.5.23-macos-arm64-app.zip",
-      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.5.23-macos-arm64-app.zip",
-      "bytes": 483418691,
-      "sha256": "9b719ef915271ffce544ad809a7bb3bfcaa6dd66a0fe14b1e344888ee865125f"
+      "name": "WWW-POSIM-0.5.25-macos-arm64-app.zip",
+      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.5.25-macos-arm64-app.zip",
+      "bytes": 451645940,
+      "sha256": "d82bc54ed8ded6ee7ba254b6cac5d115a59fd386b75c210cf0f70903c1a50c7f"
     },
     {
-      "name": "terrain-0.5.23-c4f5aea5cc6cf439f1a5c556.zip",
-      "url": "https://api.wschoi.com:8008/guide/packages/terrain-0.5.23-c4f5aea5cc6cf439f1a5c556.zip",
-      "bytes": 114337564,
-      "sha256": "24bf88f603a36da8079d3902985cc794a858b2bde11657c69c9e61939c6f1c35"
+      "name": "terrain-0.5.25-1b4dde9b458e38276605ac6f.zip",
+      "url": "https://api.wschoi.com:8008/guide/packages/terrain-0.5.25-1b4dde9b458e38276605ac6f.zip",
+      "bytes": 134755438,
+      "sha256": "e4330cad70d5cd4fb30c69a85dd089420fc2f13c620554f837c6efbee9af63e3"
     },
     {
-      "name": "terrain-0.5.23-fd128f89b979e7830a34dcd7.zip",
-      "url": "https://api.wschoi.com:8008/guide/packages/terrain-0.5.23-fd128f89b979e7830a34dcd7.zip",
+      "name": "terrain-0.5.25-fd128f89b979e7830a34dcd7.zip",
+      "url": "https://api.wschoi.com:8008/guide/packages/terrain-0.5.25-fd128f89b979e7830a34dcd7.zip",
       "bytes": 40006196,
       "sha256": "40ba05c13796f72f8e26c2953b44b48b0923040d9da8a725b83aaab6ca108358"
     },
     {
-      "name": "www-posim_0.5.23_amd64.deb",
-      "url": "https://api.wschoi.com:8008/guide/packages/www-posim_0.5.23_amd64.deb",
-      "bytes": 450457910,
-      "sha256": "722c3989aa99a805e81c48ca188d7d68e779d5f9977c3e51cf52b058f28d95a3"
+      "name": "terrain-0.5.25-c4f5aea5cc6cf439f1a5c556.zip",
+      "url": "https://api.wschoi.com:8008/guide/packages/terrain-0.5.25-c4f5aea5cc6cf439f1a5c556.zip",
+      "bytes": 114337564,
+      "sha256": "24bf88f603a36da8079d3902985cc794a858b2bde11657c69c9e61939c6f1c35"
     },
     {
-      "name": "terrain-0.5.23-1b4dde9b458e38276605ac6f.zip",
-      "url": "https://api.wschoi.com:8008/guide/packages/terrain-0.5.23-1b4dde9b458e38276605ac6f.zip",
-      "bytes": 134755438,
-      "sha256": "e4330cad70d5cd4fb30c69a85dd089420fc2f13c620554f837c6efbee9af63e3"
+      "name": "www-posim_0.5.25_amd64.deb",
+      "url": "https://api.wschoi.com:8008/guide/packages/www-posim_0.5.25_amd64.deb",
+      "bytes": 450456848,
+      "sha256": "1270e0a4ff4b003e19e1f7ba1203eb1c562e4231efb0584c881e5972bc4c97d4"
     },
     {
       "name": "www_posim_ros-0.4.0-py3-none-any.whl",
@@ -110,13 +126,13 @@
       "name": "SHA256SUMS",
       "url": "https://api.wschoi.com:8008/guide/packages/SHA256SUMS",
       "bytes": 827,
-      "sha256": "6322cb18c2efaa43ce181b5d13862a0ec66c77e888f2fa142fb838f4a94a737c"
+      "sha256": "a10fd38c6ad6b67ab4e5b34868a826913151eab0894754cd17e0cc2df06ad880"
     },
     {
       "name": "simulator-packages.json",
       "url": "https://api.wschoi.com:8008/guide/packages/simulator-packages.json",
-      "bytes": 4065,
-      "sha256": "8d8c70c581cbd20756b363e0905904dbda462df9528141e43aa2d46de83c835a"
+      "bytes": 4561,
+      "sha256": "80842305384bdb60ff4dd3cdbbcc00dba82fd6a55c4c1f5886cbea0aad592154"
     }
   ]
 }
