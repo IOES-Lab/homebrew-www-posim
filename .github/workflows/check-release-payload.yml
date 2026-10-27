@@ -1,0 +1,17 @@
+name: Check native payload publication
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths: ['scripts/release_payload.py', 'scripts/test_release_payload.py', '.github/workflows/check-release-payload.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  payload-integrity:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - run: python3 scripts/test_release_payload.py

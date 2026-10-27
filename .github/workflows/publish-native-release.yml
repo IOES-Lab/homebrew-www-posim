@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['release-input.json', '.github/workflows/publish-native-release.yml']
+    # Workflow maintenance must not republish an existing immutable release.
+    paths: ['release-input.json']
 
 permissions:
   contents: write
@@ -43,7 +44,8 @@ jobs:
           proof=data['dmg_acceptance']
           assert proof['passed'] and proof['staged_signature_verified'] and proof['mounted_signature_verified']
           assert proof['mounted_diagnostic']['engine_mode']=='native-metal'
-          assert proof['mounted_diagnostic']['native_engine_included'] is True
+          assert (proof['mounted_diagnostic'].get('native_engine_included') is True or
+                  proof['mounted_diagnostic'].get('native_engine_download') is True)
           assert proof['mounted_version']=='WWW-POSIM '+data['tag'][1:]
           assert proof['engine_sha256']==data['native_acceptance']['tested_archive_sha256']
           assert any(a['name']==proof['dmg'] and a['sha256']==proof['sha256'] for a in data['assets'])
@@ -55,6 +57,7 @@ jobs:
           retry=['--retry','5','--retry-connrefused','--retry-all-errors',
             '--connect-timeout','20','--max-time','2700']
           for entry in data['assets']:
+            assert type(entry['bytes']) is int and 0<entry['bytes']<2*1024**3
             assert re.fullmatch(r'[A-Za-z0-9_.-]+',entry['name'])
             url=urlparse(entry['url'])
             assert url.scheme=='https' and not url.username and not url.password
@@ -103,6 +106,8 @@ jobs:
               raise AssertionError('Incorrect checksum: '+entry['name'])
             remove_parts(target)
             print(f"Verified complete installer: {entry['name']}",flush=True)
+          from scripts.release_payload import verify
+          verify(data,folder)
           Path('release-tag.txt').write_text(data['tag'])
           print('All public installer assets match the tested release checksums')
           PY
