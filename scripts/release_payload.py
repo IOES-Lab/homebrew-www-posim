@@ -6,6 +6,8 @@ import re
 
 def verify(data, folder):
     diagnostic=data['dmg_acceptance']['mounted_diagnostic']
+    if diagnostic.get('publishable') is False or diagnostic.get('edition','release')!='release':
+        raise ValueError('Local development packages cannot be published')
     payload=data.get('native_payload')
     if payload is None:
         if diagnostic.get('native_engine_included') is not True:

@@ -22,7 +22,7 @@ class PayloadPublication(unittest.TestCase):
             verify(data,temp)
 
     def test_invalid_or_missing_parts_stop_publication(self):
-        for problem in ('missing','changed','oversized','reordered','url','descriptor'):
+        for problem in ('missing','changed','oversized','reordered','url','descriptor','development'):
             with self.subTest(problem=problem),tempfile.TemporaryDirectory() as temp:
                 root=Path(temp);data=self.fixture(root)
                 # Separate the copied asset metadata from descriptor metadata.
@@ -33,6 +33,7 @@ class PayloadPublication(unittest.TestCase):
                 elif problem=='reordered':parts.reverse()
                 elif problem=='url':parts[0]['url']='https://other.example/file'
                 elif problem=='descriptor':data.pop('native_payload')
+                elif problem=='development':data['dmg_acceptance']['mounted_diagnostic'].update(edition='local-development',publishable=False)
                 with self.assertRaises(ValueError):verify(data,temp)
 
 
