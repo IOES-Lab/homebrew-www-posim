@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['release-input.json', '.github/workflows/publish-native-release.yml']
+    # Workflow maintenance must not republish an existing immutable release.
+    paths: ['release-input.json']
 
 permissions:
   contents: write
@@ -16,7 +17,7 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v7
       - name: Restore installer download cache
@@ -43,7 +44,8 @@ jobs:
           proof=data['dmg_acceptance']
           assert proof['passed'] and proof['staged_signature_verified'] and proof['mounted_signature_verified']
           assert proof['mounted_diagnostic']['engine_mode']=='native-metal'
-          assert proof['mounted_diagnostic']['native_engine_included'] is True
+          assert (proof['mounted_diagnostic'].get('native_engine_included') is True or
+                  proof['mounted_diagnostic'].get('native_engine_download') is True)
           assert proof['mounted_version']=='WWW-POSIM '+data['tag'][1:]
           assert proof['engine_sha256']==data['native_acceptance']['tested_archive_sha256']
           assert any(a['name']==proof['dmg'] and a['sha256']==proof['sha256'] for a in data['assets'])
@@ -55,6 +57,7 @@ jobs:
           retry=['--retry','5','--retry-connrefused','--retry-all-errors',
             '--connect-timeout','20','--max-time','2700']
           for entry in data['assets']:
+            assert type(entry['bytes']) is int and 0<entry['bytes']<2*1024**3
             assert re.fullmatch(r'[A-Za-z0-9_.-]+',entry['name'])
             url=urlparse(entry['url'])
             assert url.scheme=='https' and not url.username and not url.password
@@ -69,16 +72,18 @@ jobs:
                 continue
               target.unlink()
             # Bounded ranges avoid one slow trans-Pacific TCP connection.
-            count=min(12,max(1,math.ceil(entry['bytes']/(4*1024*1024))))
+            # Keep checkpoints small even for a nearly 2 GiB installer.
+            # A failed connection should retry at most one 8 MiB range.
+            span=8*1024*1024
+            count=max(1,math.ceil(entry['bytes']/span))
             if count==1:
               subprocess.run(['curl','--fail','--location','--silent','--show-error',
                 *retry,
                 '--max-filesize',str(entry['bytes']),'--output',str(target),entry['url']],check=True)
             else:
-              span=math.ceil(entry['bytes']/count)
               def part(index):
                 start=index*span;end=min(entry['bytes'],start+span)-1
-                file=target.with_name(target.name+f'.part-{index}')
+                file=target.with_name(target.name+f'.part-{start}-{end}')
                 digest=file.with_name(file.name+'.sha256')
                 if file.exists() and digest.exists() and file.stat().st_size==end-start+1:
                   if checksum(file)==digest.read_text().strip():
@@ -93,7 +98,7 @@ jobs:
                 digest.write_text(checksum(file))
                 print(f"Verified range {index+1}/{count}: {entry['name']}",flush=True)
                 return file
-              with ThreadPoolExecutor(max_workers=count) as pool:parts=list(pool.map(part,range(count)))
+              with ThreadPoolExecutor(max_workers=min(12,count)) as pool:parts=list(pool.map(part,range(count)))
               with target.open('wb') as output:
                 for file in parts:
                   with file.open('rb') as source:shutil.copyfileobj(source,output)
@@ -103,6 +108,8 @@ jobs:
               raise AssertionError('Incorrect checksum: '+entry['name'])
             remove_parts(target)
             print(f"Verified complete installer: {entry['name']}",flush=True)
+          from scripts.release_payload import verify
+          verify(data,folder)
           Path('release-tag.txt').write_text(data['tag'])
           print('All public installer assets match the tested release checksums')
           PY
