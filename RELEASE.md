@@ -1,7 +1,7 @@
-# WWW-POSIM 0.5.25
+# WWW-POSIM 0.5.26
 
 Platform packages, application runtime and public workbench.
 
-Source: fdc2fe30e2eab9906fbfd34016b75e722b2b4d99
+Source: 731e0822dab257bc5acf5b29201f7636a7a01c2b
 
-The Mac app bundles the qualified native archive with the current launcher, runtime and workbench. The ROS connector remains independently versioned 0.4.0. The Mac signature is ad hoc; the app is not Apple notarized.
+The Mac app downloads the qualified native archive from verified release parts on first start, and caches it outside the app. The ROS connector remains independently versioned 0.4.0. The Mac signature is ad hoc; the app is not Apple notarized.
