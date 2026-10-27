@@ -17,7 +17,7 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v7
       - name: Restore installer download cache
@@ -83,7 +83,7 @@ jobs:
             else:
               def part(index):
                 start=index*span;end=min(entry['bytes'],start+span)-1
-                file=target.with_name(target.name+f'.part-{index}')
+                file=target.with_name(target.name+f'.part-{start}-{end}')
                 digest=file.with_name(file.name+'.sha256')
                 if file.exists() and digest.exists() and file.stat().st_size==end-start+1:
                   if checksum(file)==digest.read_text().strip():
