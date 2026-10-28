@@ -1,8 +1,8 @@
 cask "www-posim" do
-  version "0.5.26"
-  sha256 "24c5431eb6875d660a087e4b4f915ad8e933928fb215d5103229a31043bdad25"
+  version "0.5.27"
+  sha256 "aee6fe91b3e5baed9b7c36c03e80cd6d9d7ce556a07ea343ed5a2019a3c180d6"
 
-  url "https://github.com/IOES-Lab/homebrew-www-posim/releases/download/v0.5.26/WWW-POSIM-0.5.26-macos-arm64.dmg"
+  url "https://github.com/IOES-Lab/homebrew-www-posim/releases/download/v0.5.27/WWW-POSIM-0.5.27-macos-arm64.dmg"
   name "WWW-POSIM"
   desc "Ocean robot simulator with native ROS, Gazebo and Metal rendering"
   homepage "https://lab.wschoi.com/"
