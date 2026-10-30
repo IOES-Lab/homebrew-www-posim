@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: native-release
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   publish:
@@ -20,7 +20,23 @@ jobs:
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v7
+      - name: Select direct publication
+        id: mode
+        run: |
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          value=json.loads(Path('release-input.json').read_text())
+          with open(os.environ['GITHUB_OUTPUT'],'a') as out:
+            out.write('direct='+str('draft_release_id' in value).lower()+'\n')
+          PY
+      - name: Promote directly uploaded assets after all checks
+        if: steps.mode.outputs.direct == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/direct_release.py
       - name: Restore installer download cache
+        if: steps.mode.outputs.direct != 'true'
         id: installer-cache
         uses: actions/cache/restore@v6
         with:
@@ -29,6 +45,7 @@ jobs:
           restore-keys: |
             native-installers-${{ hashFiles('release-input.json') }}-
       - name: Download and verify the accepted installer
+        if: steps.mode.outputs.direct != 'true'
         run: |
           python3 - <<'PY'
           import hashlib,json,re,subprocess,math,shutil
@@ -114,12 +131,13 @@ jobs:
           print('All public installer assets match the tested release checksums')
           PY
       - name: Save verified downloads and resumable ranges
-        if: ${{ always() && !cancelled() }}
+        if: ${{ steps.mode.outputs.direct != 'true' && always() && !cancelled() }}
         uses: actions/cache/save@v6
         with:
           path: release-assets
           key: ${{ steps.installer-cache.outputs.cache-primary-key }}
       - name: Publish public binary release
+        if: steps.mode.outputs.direct != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

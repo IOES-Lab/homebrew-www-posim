@@ -58,6 +58,8 @@ Use [your first simulation guide](https://www-posim.vercel.app/guide/manual.html
 
 ## Advanced information
 
+Release maintainers: [direct publication and verification](docs/direct-publication.md).
+
 - [Latest SHA-256 checksums](https://www-posim.vercel.app/guide/packages/latest/SHA256SUMS) and [package manifest](https://www-posim.vercel.app/guide/packages/latest/simulator-packages.json) identify the published installer bytes.
 - The release workflow verifies installer sizes, hashes and native acceptance before updating the Homebrew cask.
 - The Mac distribution uses ad-hoc signing and is not Apple-notarized. Follow [macOS opening instructions](https://www-posim.vercel.app/guide/downloads.html) if macOS blocks the app.
