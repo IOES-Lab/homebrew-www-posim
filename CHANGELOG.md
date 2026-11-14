@@ -3,7 +3,7 @@
 
 ## Unreleased / 미출시
 
-No public changes recorded. / 기록된 공개 변경 사항이 없습니다.
+- Commit title / 커밋 제목: Document published WWW\-POSIM 0\.6\.15 downloads \[skip ci\]
 
 ## v0.6.15
 
