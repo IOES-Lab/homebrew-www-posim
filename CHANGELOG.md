@@ -3,6 +3,10 @@
 
 ## Unreleased / 미출시
 
+No public changes recorded. / 기록된 공개 변경 사항이 없습니다.
+
+## v0.6.15
+
 - PR title / PR 제목: ArduPilot 4\.7\.2와 가변 SITL 샘플링·GUIDED 정지 제어·공통 UI 개선 \(0\.6\.14\)
 - PR title / PR 제목: \[영상\] 최종 두 편 제작 계획과 실제 Gazebo·호스트 클라이언트 촬영 도구
 - Add bilingual public change summaries for application updates.
