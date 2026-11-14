@@ -3,6 +3,7 @@
 
 ## Unreleased / 미출시
 
+- PR title / PR 제목: 문서\: 기존 YouTube 기능 시연 8개 삽입
 - Commit title / 커밋 제목: Document published WWW\-POSIM 0\.6\.15 downloads \[skip ci\]
 
 ## v0.6.15
@@ -26,4 +27,4 @@
   - 릴리스 문서 검사에서 필요한 미디어를 내려받을 때 HTTPS 인증을 유지합니다.
 - PR title / PR 제목: Keep the LIVE voyage connected across fullscreen transitions
 
-<!-- www-posim-title-snapshots: {"schema": 1, "titles": {"44d1c182c07b0e0c51d6d67ededc18b3f01e41c98dcdc1e07d8a9d53c411516d": "ArduPilot 4.7.2\uc640 \uac00\ubcc0 SITL \uc0d8\ud50c\ub9c1\u00b7GUIDED \uc815\uc9c0 \uc81c\uc5b4\u00b7\uacf5\ud1b5 UI \uac1c\uc120 (0.6.14)", "48f3c5ca65fcd628146560a0fae7652bbe4b594dd4c2522c285377e5d6bd934b": "[\uc601\uc0c1] \ucd5c\uc885 \ub450 \ud3b8 \uc81c\uc791 \uacc4\ud68d\uacfc \uc2e4\uc81c Gazebo\u00b7\ud638\uc2a4\ud2b8 \ud074\ub77c\uc774\uc5b8\ud2b8 \ucd2c\uc601 \ub3c4\uad6c", "580482e6584635e623c70f4cf1bda32353eb273f68801dfe5ca8099eb2016424": "Keep the LIVE voyage connected across fullscreen transitions", "ab93a8a54367a9e41258408b254c2037659033265aa33232cb0499c56222fd51": "\uacf5\uac1c \ubcc0\uacbd \uae30\ub85d \uc790\ub3d9\ud654\uc640 PR\u00b7\uc9c1\uc811 \ucee4\ubc0b \uc81c\ubaa9 \ub300\uccb4 \ucc98\ub9ac \ucd94\uac00"}} -->
+<!-- www-posim-title-snapshots: {"schema": 1, "titles": {"44d1c182c07b0e0c51d6d67ededc18b3f01e41c98dcdc1e07d8a9d53c411516d": "ArduPilot 4.7.2\uc640 \uac00\ubcc0 SITL \uc0d8\ud50c\ub9c1\u00b7GUIDED \uc815\uc9c0 \uc81c\uc5b4\u00b7\uacf5\ud1b5 UI \uac1c\uc120 (0.6.14)", "48f3c5ca65fcd628146560a0fae7652bbe4b594dd4c2522c285377e5d6bd934b": "[\uc601\uc0c1] \ucd5c\uc885 \ub450 \ud3b8 \uc81c\uc791 \uacc4\ud68d\uacfc \uc2e4\uc81c Gazebo\u00b7\ud638\uc2a4\ud2b8 \ud074\ub77c\uc774\uc5b8\ud2b8 \ucd2c\uc601 \ub3c4\uad6c", "580482e6584635e623c70f4cf1bda32353eb273f68801dfe5ca8099eb2016424": "Keep the LIVE voyage connected across fullscreen transitions", "a03c58c5c420559ab93d562beb5cf4e38cba30ca82683325e24e696812fa5722": "\ubb38\uc11c: \uae30\uc874 YouTube \uae30\ub2a5 \uc2dc\uc5f0 8\uac1c \uc0bd\uc785", "ab93a8a54367a9e41258408b254c2037659033265aa33232cb0499c56222fd51": "\uacf5\uac1c \ubcc0\uacbd \uae30\ub85d \uc790\ub3d9\ud654\uc640 PR\u00b7\uc9c1\uc811 \ucee4\ubc0b \uc81c\ubaa9 \ub300\uccb4 \ucc98\ub9ac \ucd94\uac00"}} -->
