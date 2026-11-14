@@ -1,8 +1,8 @@
 {
-  "tag": "v0.6.13",
+  "tag": "v0.6.15",
   "native_acceptance": {
     "passed": true,
-    "tested_archive_sha256": "e545053835aed5027222378b6b692475d58d3e8790d7747d7c364ca728759125",
+    "tested_archive_sha256": "498e81c67376436308a0a5407765839ba7e20d272383452cdddf1e1845f935c0",
     "measured_gnss_navigation": {
       "source": "gnss_imu",
       "measurement_state": "fix",
@@ -24,16 +24,16 @@
       "bluerov2",
       "wamv"
     ],
-    "local_ros_displacement_m": 9.171850703934087,
+    "local_ros_displacement_m": 9.152702379346074,
     "sensor_messages": {
-      "camera": 14,
-      "imu": 87,
-      "lidar": 69,
+      "camera": 17,
+      "imu": 88,
+      "lidar": 87,
       "odometry": 87,
-      "clock": 87
+      "clock": 88
     },
-    "transport_callback_gap_seconds": 0.007097166031599045,
-    "transport_concurrent_messages_published": 4922,
+    "transport_callback_gap_seconds": 0.003205792047083378,
+    "transport_concurrent_messages_published": 4948,
     "synthetic_tutorial_plot_sha256": "b4bde41029e71e05f7684e10c3cce7d07d0f854be54416c5e41910f3b1887c14",
     "distant_water": {
       "source_sha256": "b98575aeb76a965d58708b0d524c1586fa6b73ce9e6d9bece176b3052b91a889",
@@ -46,18 +46,18 @@
   },
   "dmg_acceptance": {
     "passed": true,
-    "dmg": "WWW-POSIM-0.6.13-macos-arm64.dmg",
-    "sha256": "8b29022058b53286a4c6a518bb7b6e46af749cd6d3b2b63b1987c5381e0f9a73",
+    "dmg": "WWW-POSIM-0.6.15-macos-arm64.dmg",
+    "sha256": "a08a85f09a545f7b90a2787d7ec288f8cb12970389d8a7aeda7f0cec8696d9ec",
     "staged_signature_verified": true,
     "mounted_signature_verified": true,
-    "mounted_version": "WWW-POSIM 0.6.13",
-    "app_executable_sha256": "ed2d1771f913ca3045c3a2a307a7066a3ebcc4d88c0d13b5b310625437983648",
-    "mounted_executable_sha256": "ed2d1771f913ca3045c3a2a307a7066a3ebcc4d88c0d13b5b310625437983648",
+    "mounted_version": "WWW-POSIM 0.6.15",
+    "app_executable_sha256": "ff480d13b67e0c1713b1c4d990b3d902e376acb514c5d98bc40994f3c84657d0",
+    "mounted_executable_sha256": "ff480d13b67e0c1713b1c4d990b3d902e376acb514c5d98bc40994f3c84657d0",
     "mounted_diagnostic": {
       "application": "WWW-POSIM",
       "edition": "release",
       "publishable": true,
-      "version": "0.6.13",
+      "version": "0.6.15",
       "platform": "Darwin",
       "architecture": "arm64",
       "engine_mode": "native-metal",
@@ -73,9 +73,9 @@
     },
     "gui_startup": {
       "passed": true,
-      "version": "0.6.13",
+      "version": "0.6.15",
       "tk": "8.6.13",
-      "tcl_library": "/private/tmp/launcher-validation-k2ice8cp/Relocated app \u03a9/WWW-POSIM.app/Contents/Resources/_tcl_data",
+      "tcl_library": "/private/tmp/launcher-validation-n1h7f3mw/Relocated app \u03a9/WWW-POSIM.app/Contents/Resources/_tcl_data",
       "window_visible": true,
       "splash_visible": true,
       "native": true,
@@ -98,173 +98,173 @@
       },
       "relocated": true,
       "builder_paths_removed": true,
-      "origin": "/private/tmp/www-posim-dmg-pbrcdmfd/WWW-POSIM.app/Contents/MacOS/WWW-POSIM",
-      "native_files_checked": 80
+      "origin": "/private/tmp/www-posim-dmg-lhx940hg/WWW-POSIM.app/Contents/MacOS/WWW-POSIM",
+      "native_files_checked": 81
     },
-    "engine_sha256": "e545053835aed5027222378b6b692475d58d3e8790d7747d7c364ca728759125",
+    "engine_sha256": "498e81c67376436308a0a5407765839ba7e20d272383452cdddf1e1845f935c0",
     "edition": "release",
     "publishable": true
   },
   "native_payload": {
     "schema": 1,
     "name": "engine.tar.gz",
-    "bytes": 1613241732,
-    "sha256": "e545053835aed5027222378b6b692475d58d3e8790d7747d7c364ca728759125",
+    "bytes": 2072156495,
+    "sha256": "498e81c67376436308a0a5407765839ba7e20d272383452cdddf1e1845f935c0",
     "parts": [
       {
-        "name": "WWW-POSIM-0.6.13-macos-engine.part001",
+        "name": "WWW-POSIM-0.6.15-macos-engine.part001",
         "bytes": 536870912,
-        "sha256": "0d3b7fdf32a683b774036e675f4175d70af3af8e2c8817fbf23618cd0316e77d",
-        "url": "https://github.com/IOES-Lab/homebrew-www-posim/releases/download/v0.6.13/WWW-POSIM-0.6.13-macos-engine.part001"
+        "sha256": "a56fee8e151ea9e9efb21e422429711a225a700b83203ba51d6f2ffb7a27a889",
+        "url": "https://github.com/IOES-Lab/homebrew-www-posim/releases/download/v0.6.15/WWW-POSIM-0.6.15-macos-engine.part001"
       },
       {
-        "name": "WWW-POSIM-0.6.13-macos-engine.part002",
+        "name": "WWW-POSIM-0.6.15-macos-engine.part002",
         "bytes": 536870912,
-        "sha256": "1efa86caec6f50f3746c2cbf17d5c195da64e09c13d638780f9ef207600c7482",
-        "url": "https://github.com/IOES-Lab/homebrew-www-posim/releases/download/v0.6.13/WWW-POSIM-0.6.13-macos-engine.part002"
+        "sha256": "b88ff287b8eb07ccddda4fd7c1caf92ef552d3062be6fb22965485f112c0d4e0",
+        "url": "https://github.com/IOES-Lab/homebrew-www-posim/releases/download/v0.6.15/WWW-POSIM-0.6.15-macos-engine.part002"
       },
       {
-        "name": "WWW-POSIM-0.6.13-macos-engine.part003",
+        "name": "WWW-POSIM-0.6.15-macos-engine.part003",
         "bytes": 536870912,
-        "sha256": "3d890a039209aa40fc7dd5fa830b291320fa0760aae333c49a44c26a6d088d39",
-        "url": "https://github.com/IOES-Lab/homebrew-www-posim/releases/download/v0.6.13/WWW-POSIM-0.6.13-macos-engine.part003"
+        "sha256": "16bf055ea1cdb09685490f1cd60c40518f120f5509c216b817e914045bea5fd5",
+        "url": "https://github.com/IOES-Lab/homebrew-www-posim/releases/download/v0.6.15/WWW-POSIM-0.6.15-macos-engine.part003"
       },
       {
-        "name": "WWW-POSIM-0.6.13-macos-engine.part004",
-        "bytes": 2628996,
-        "sha256": "1248246c1725886551572e914947a9adbdf0363074bfe5e86de0622962ef710c",
-        "url": "https://github.com/IOES-Lab/homebrew-www-posim/releases/download/v0.6.13/WWW-POSIM-0.6.13-macos-engine.part004"
+        "name": "WWW-POSIM-0.6.15-macos-engine.part004",
+        "bytes": 461543759,
+        "sha256": "fe156f5e02f851c8f8b6cdab38aaa68a8717ca7ed74fc3b57eea759804686c4c",
+        "url": "https://github.com/IOES-Lab/homebrew-www-posim/releases/download/v0.6.15/WWW-POSIM-0.6.15-macos-engine.part004"
       }
     ]
   },
   "assets": [
     {
-      "name": "WWW-POSIM-0.6.13-macos-arm64.dmg",
-      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.6.13-macos-arm64.dmg",
-      "bytes": 542646287,
-      "sha256": "8b29022058b53286a4c6a518bb7b6e46af749cd6d3b2b63b1987c5381e0f9a73",
-      "asset_id": 722668051
+      "name": "WWW-POSIM-0.6.15-macos-arm64.dmg",
+      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.6.15-macos-arm64.dmg",
+      "bytes": 557654477,
+      "sha256": "a08a85f09a545f7b90a2787d7ec288f8cb12970389d8a7aeda7f0cec8696d9ec",
+      "asset_id": 745911704
     },
     {
-      "name": "terrain-0.6.13-c4f5aea5cc6cf439f1a5c556.zip",
-      "url": "https://api.wschoi.com:8008/guide/packages/terrain-0.6.13-c4f5aea5cc6cf439f1a5c556.zip",
-      "bytes": 114337564,
-      "sha256": "24bf88f603a36da8079d3902985cc794a858b2bde11657c69c9e61939c6f1c35",
-      "asset_id": 722682477
-    },
-    {
-      "name": "terrain-0.6.13-fd128f89b979e7830a34dcd7.zip",
-      "url": "https://api.wschoi.com:8008/guide/packages/terrain-0.6.13-fd128f89b979e7830a34dcd7.zip",
-      "bytes": 40006196,
-      "sha256": "40ba05c13796f72f8e26c2953b44b48b0923040d9da8a725b83aaab6ca108358",
-      "asset_id": 722686808
-    },
-    {
-      "name": "terrain-0.6.13-1b4dde9b458e38276605ac6f.zip",
-      "url": "https://api.wschoi.com:8008/guide/packages/terrain-0.6.13-1b4dde9b458e38276605ac6f.zip",
+      "name": "terrain-0.6.15-1b4dde9b458e38276605ac6f.zip",
+      "url": "https://api.wschoi.com:8008/guide/packages/terrain-0.6.15-1b4dde9b458e38276605ac6f.zip",
       "bytes": 134755438,
       "sha256": "e4330cad70d5cd4fb30c69a85dd089420fc2f13c620554f837c6efbee9af63e3",
-      "asset_id": 722689462
+      "asset_id": 745923524
     },
     {
-      "name": "WWW-POSIM-0.6.13-macos-arm64-app.zip",
-      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.6.13-macos-arm64-app.zip",
-      "bytes": 475783152,
-      "sha256": "012115533924ac928a95272244eae1201895724ad2fb4076ff6c95a68ef09677",
-      "asset_id": 722695272
+      "name": "terrain-0.6.15-fd128f89b979e7830a34dcd7.zip",
+      "url": "https://api.wschoi.com:8008/guide/packages/terrain-0.6.15-fd128f89b979e7830a34dcd7.zip",
+      "bytes": 40006196,
+      "sha256": "40ba05c13796f72f8e26c2953b44b48b0923040d9da8a725b83aaab6ca108358",
+      "asset_id": 745928899
     },
     {
-      "name": "WWW-POSIM-0.6.13-macos-engine.part001",
-      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.6.13-macos-engine.part001",
+      "name": "terrain-0.6.15-c4f5aea5cc6cf439f1a5c556.zip",
+      "url": "https://api.wschoi.com:8008/guide/packages/terrain-0.6.15-c4f5aea5cc6cf439f1a5c556.zip",
+      "bytes": 114337564,
+      "sha256": "24bf88f603a36da8079d3902985cc794a858b2bde11657c69c9e61939c6f1c35",
+      "asset_id": 745932594
+    },
+    {
+      "name": "WWW-POSIM-0.6.15-macos-arm64-app.zip",
+      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.6.15-macos-arm64-app.zip",
+      "bytes": 475942108,
+      "sha256": "7993dd0216f32ec7b60c26fc25e6fc147edff8448ae7fb4e65f1a113a2f323dd",
+      "asset_id": 745937399
+    },
+    {
+      "name": "WWW-POSIM-0.6.15-macos-engine.part001",
+      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.6.15-macos-engine.part001",
       "bytes": 536870912,
-      "sha256": "0d3b7fdf32a683b774036e675f4175d70af3af8e2c8817fbf23618cd0316e77d",
-      "asset_id": 722705770
+      "sha256": "a56fee8e151ea9e9efb21e422429711a225a700b83203ba51d6f2ffb7a27a889",
+      "asset_id": 745948655
     },
     {
-      "name": "WWW-POSIM-0.6.13-macos-engine.part002",
-      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.6.13-macos-engine.part002",
+      "name": "WWW-POSIM-0.6.15-macos-engine.part002",
+      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.6.15-macos-engine.part002",
       "bytes": 536870912,
-      "sha256": "1efa86caec6f50f3746c2cbf17d5c195da64e09c13d638780f9ef207600c7482",
-      "asset_id": 722717062
+      "sha256": "b88ff287b8eb07ccddda4fd7c1caf92ef552d3062be6fb22965485f112c0d4e0",
+      "asset_id": 745962113
     },
     {
-      "name": "WWW-POSIM-0.6.13-macos-engine.part003",
-      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.6.13-macos-engine.part003",
+      "name": "WWW-POSIM-0.6.15-macos-engine.part003",
+      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.6.15-macos-engine.part003",
       "bytes": 536870912,
-      "sha256": "3d890a039209aa40fc7dd5fa830b291320fa0760aae333c49a44c26a6d088d39",
-      "asset_id": 722727805
+      "sha256": "16bf055ea1cdb09685490f1cd60c40518f120f5509c216b817e914045bea5fd5",
+      "asset_id": 745975397
     },
     {
-      "name": "WWW-POSIM-0.6.13-macos-engine.part004",
-      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.6.13-macos-engine.part004",
-      "bytes": 2628996,
-      "sha256": "1248246c1725886551572e914947a9adbdf0363074bfe5e86de0622962ef710c",
-      "asset_id": 722738330
+      "name": "WWW-POSIM-0.6.15-macos-engine.part004",
+      "url": "https://api.wschoi.com:8008/guide/packages/WWW-POSIM-0.6.15-macos-engine.part004",
+      "bytes": 461543759,
+      "sha256": "fe156f5e02f851c8f8b6cdab38aaa68a8717ca7ed74fc3b57eea759804686c4c",
+      "asset_id": 745986536
     },
     {
-      "name": "WWW-POSIM-0.6.13-windows-x64.exe",
-      "bytes": 608369458,
-      "sha256": "8e0238bc07115ee3460f74fd0926bdf36cff229708792d8548a640bcb51f5b9c",
+      "name": "WWW-POSIM-0.6.15-windows-x64.exe",
+      "bytes": 608367833,
+      "sha256": "9b0298e42589da38d48b6751974eee891eaea84965b701f97d98e1bd7cd94b60",
       "edition": "release",
       "publishable": true,
       "engine_mode": "docker",
       "native_engine_included": false,
       "native_engine_download": false,
-      "asset_id": 722511051
+      "asset_id": 745839210
     },
     {
-      "name": "www-posim_0.6.13_amd64.deb",
-      "bytes": 451221994,
-      "sha256": "0c6625d27f1db7ff62942bc8801787307987663e36877f99bd4b7a32bdbb7e34",
+      "name": "www-posim_0.6.15_amd64.deb",
+      "bytes": 451232342,
+      "sha256": "cabb9d0129226f1c3e2f452b959843fd2facef71f0cc00cc1715ccd91c4859ff",
       "edition": "release",
       "publishable": true,
       "engine_mode": "docker",
       "native_engine_included": false,
       "native_engine_download": false,
-      "asset_id": 722485935
+      "asset_id": 745812554
     },
     {
       "name": "www_posim_ros-0.4.2-py3-none-any.whl",
       "url": "https://api.wschoi.com:8008/guide/packages/www_posim_ros-0.4.2-py3-none-any.whl",
-      "bytes": 24824,
-      "sha256": "908be0f6e4425733a08a70628040fffc8a3b5d31e78643c14b55bc89e483d2a3",
-      "asset_id": 722738603
+      "bytes": 24981,
+      "sha256": "7a82e10f66738a864889ab5a351a573569b28be75f87d582ddf438a3e26c2726",
+      "asset_id": 745994773
     },
     {
       "name": "SHA256SUMS",
       "url": "https://api.wschoi.com:8008/guide/packages/SHA256SUMS",
       "bytes": 1243,
-      "sha256": "2ad0b6d7270eb1a0871f186c6086002b44f992357518747741d2948a2e5503a1",
-      "asset_id": 722738888
+      "sha256": "a694a7a06f88fbf02a790cfc1213c160ee7e1fd7bc273044597686a4c6b9b07c",
+      "asset_id": 745994932
     },
     {
       "name": "simulator-packages.json",
       "url": "https://api.wschoi.com:8008/guide/packages/simulator-packages.json",
-      "bytes": 6521,
-      "sha256": "1342e22be4df83b37020464f407be5600242b8e675640060194da6155366e345",
-      "asset_id": 722739052
+      "bytes": 8275,
+      "sha256": "4a36cf85720ba2e035e7839d4d7f4e4e1050cfe02abe966f9c40ef53f130d4ba",
+      "asset_id": 745995257
     }
   ],
-  "source_revision": "ad46558232b6e1c44f0016fba1e0759121a8b650",
-  "draft_release_id": 437954353,
+  "source_revision": "1f7d01b16e87687bbf2f7a37faa651679797b941",
+  "draft_release_id": 444899072,
   "upload_verification": {
-    "source_revision": "ad46558232b6e1c44f0016fba1e0759121a8b650",
-    "native_payload_sha256": "e545053835aed5027222378b6b692475d58d3e8790d7747d7c364ca728759125",
+    "source_revision": "1f7d01b16e87687bbf2f7a37faa651679797b941",
+    "native_payload_sha256": "498e81c67376436308a0a5407765839ba7e20d272383452cdddf1e1845f935c0",
     "asset_ids": [
-      722668051,
-      722682477,
-      722686808,
-      722689462,
-      722695272,
-      722705770,
-      722717062,
-      722727805,
-      722738330,
-      722511051,
-      722485935,
-      722738603,
-      722738888,
-      722739052
+      745911704,
+      745923524,
+      745928899,
+      745932594,
+      745937399,
+      745948655,
+      745962113,
+      745975397,
+      745986536,
+      745839210,
+      745812554,
+      745994773,
+      745994932,
+      745995257
     ]
   }
 }
