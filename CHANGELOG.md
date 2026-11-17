@@ -3,6 +3,10 @@
 
 ## Unreleased / 미출시
 
+No public changes recorded. / 기록된 공개 변경 사항이 없습니다.
+
+## v0.6.17
+
 - PR title / PR 제목: 0\.6\.17\: 무료 Pro 안내와 기본 데모·소나 배포 결함 수정
 - Commit title / 커밋 제목: Document published WWW\-POSIM 0\.6\.16 downloads \[skip ci\]
 - PR title / PR 제목: 0\.6\.17 HDD release storage with isolated SSD runtime staging
