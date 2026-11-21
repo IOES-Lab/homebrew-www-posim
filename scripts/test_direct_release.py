@@ -11,11 +11,11 @@ import direct_release as release
 
 
 class DirectPublication(unittest.TestCase):
-    def fixture(self):
-        version, revision = '0.6.3', 'a' * 40
+    def fixture(self, version='0.6.3'):
+        revision = 'a' * 40
         expected = dict(schema=1, source_repository=release.SOURCE, version=version, revision=revision)
-        names = ['WWW-POSIM-0.6.3-windows-x64.exe', 'www-posim_0.6.3_amd64.deb',
-                 'WWW-POSIM-0.6.3-macos-arm64.dmg', 'WWW-POSIM-0.6.3-macos-engine.part001']
+        names = [f'WWW-POSIM-{version}-windows-x64.exe', f'www-posim_{version}_amd64.deb',
+                 f'WWW-POSIM-{version}-macos-arm64.dmg', f'WWW-POSIM-{version}-macos-engine.part001']
         values, remote = [], {}
         for index, name in enumerate(names):
             value = dict(name=name, bytes=100 + index, sha256=hashlib.sha256(name.encode()).hexdigest(), asset_id=index + 10)
@@ -45,6 +45,19 @@ class DirectPublication(unittest.TestCase):
     def test_matching_platforms_and_native_acceptance_pass_without_relaying_installers(self):
         data, draft, remote, receipts = self.fixture()
         self.assertEqual(release.validate(data, draft, remote, receipts)['revision'], 'a' * 40)
+
+    def test_submerged_mission_exception_is_explicit_and_limited_to_0618(self):
+        data, draft, remote, receipts = self.fixture('0.6.18')
+        native = data['native_acceptance']
+        native['autopilot_robots'] = ['wamv']
+        with self.assertRaisesRegex(ValueError, 'Native/installed Mac acceptance'):
+            release.validate(data, draft, remote, receipts)
+        native['waived_tests'] = ['bluerov2_submerged_mission']
+        self.assertEqual(release.validate(data, draft, remote, receipts)['version'], '0.6.18')
+        data, draft, remote, receipts = self.fixture('0.6.19')
+        data['native_acceptance'].update(native)
+        with self.assertRaisesRegex(ValueError, 'Native/installed Mac acceptance'):
+            release.validate(data, draft, remote, receipts)
 
     def test_corruption_mixed_sources_missing_parts_and_development_builds_block(self):
         for problem in ('digest', 'size', 'source', 'platform', 'missing_part', 'part_url', 'development', 'signature', 'native', 'image', 'byte_verification'):
