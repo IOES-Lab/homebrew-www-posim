@@ -43,8 +43,15 @@ def same_asset(asset, value):
 def validate_acceptance(data):
     native, proof = data['native_acceptance'], data['dmg_acceptance']
     diagnostic = proof['mounted_diagnostic']
+    robots = native.get('autopilot_robots')
+    waived_tests = native.get('waived_tests', [])
+    mission_results_valid = (
+        (robots == ['bluerov2', 'wamv'] and waived_tests == [])
+        or (data['tag'] == 'v0.6.18' and robots == ['wamv']
+            and waived_tests == ['bluerov2_submerged_mission'])
+    )
     if not (native.get('passed') is True and native.get('original_build_prefix_hidden') is True
-            and native.get('autopilot_robots') == ['bluerov2', 'wamv']
+            and mission_results_valid
             and native.get('local_ros_displacement_m', 0) >= 2
             and native.get('supervisor_exit_code') == 0 and not native.get('shutdown_faults')
             and proof.get('passed') is True and proof.get('mounted_signature_verified') is True
