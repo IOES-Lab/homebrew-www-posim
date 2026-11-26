@@ -3,6 +3,10 @@
 
 ## Unreleased / 미출시
 
+No public changes recorded. / 기록된 공개 변경 사항이 없습니다.
+
+## v0.6.19
+
 - PR title / PR 제목: 0\.6\.18 확장·LIVE 복구·수중 초기화·릴리스 검증 통합
 - PR title / PR 제목: 문서\: Gemini 4 Argon 소개문 개정 파일럿
 - Keep a reviewed source merge separate from publication when a version is on hold.
