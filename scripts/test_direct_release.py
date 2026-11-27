@@ -46,6 +46,60 @@ class DirectPublication(unittest.TestCase):
         data, draft, remote, receipts = self.fixture()
         self.assertEqual(release.validate(data, draft, remote, receipts)['revision'], 'a' * 40)
 
+    def test_0620_missing_installed_suite_blocks_both_publishers(self):
+        from release_payload import verify
+        data, draft, remote, receipts = self.fixture('0.6.20')
+        with self.assertRaisesRegex(ValueError, 'installed mission'):
+            release.validate(data, draft, remote, receipts)
+        with tempfile.TemporaryDirectory() as folder, self.assertRaisesRegex(ValueError, 'installed mission'):
+            verify(data, folder)
+
+    def mission_fixture(self):
+        data, draft, remote, receipts = self.fixture('0.6.20')
+        dmg = data['dmg_acceptance']
+        dmg.update(mounted_executable_sha256='c'*64, app_executable_sha256='c'*64)
+        data['posim_revision'] = 'f'*40
+        rows = [dict(outcome=outcome, **{
+            key: hashlib.sha256(f'{index}:{key}'.encode()).hexdigest()
+            for key in ('mission_sha256', 'nonce_sha256', 'samples_sha256')})
+            for index, outcome in enumerate(('completed', 'completed', 'dvl_stale'))]
+        receipt = dict(policy='bluerov2-installed-2p1-v1', version='0.6.20', platform='macos-arm64',
+                       source_revision=data['source_revision'], posim_revision=data['posim_revision'],
+                       dmg=dmg['dmg'], dmg_sha256=dmg['sha256'], launcher_sha256='c'*64,
+                       engine_sha256=dmg['engine_sha256'], suite_sha256='b'*64, trials=rows)
+        return data, draft, remote, receipts, receipt
+
+    def test_0620_direct_and_legacy_match_candidate_and_distinct_trial_commitments(self):
+        from release_payload import MISSION_RECEIPT, verify
+        for problem in ('', 'source_revision', 'posim_revision', 'dmg_sha256', 'launcher_sha256', 'engine_sha256',
+                        'suite_sha256', 'nonce_sha256', 'samples_sha256', 'mission_sha256', 'outcome', 'digest'):
+            with self.subTest(problem=problem), tempfile.TemporaryDirectory() as folder:
+                data, draft, remote, receipts, receipt = self.mission_fixture()
+                if problem in ('nonce_sha256', 'mission_sha256', 'samples_sha256'):
+                    receipt['trials'][1][problem] = receipt['trials'][0][problem]
+                elif problem == 'outcome':
+                    receipt['trials'][2][problem] = 'completed'
+                elif problem and problem != 'digest':
+                    receipt[problem] = '0'*40 if problem.endswith('revision') else 'wrong'
+                content = json.dumps(receipt).encode()
+                sha = hashlib.sha256(content if problem != 'digest' else b'different').hexdigest()
+                data['assets'].append(dict(name=MISSION_RECEIPT, bytes=len(content), sha256=sha, asset_id=99))
+                data['upload_verification']['asset_ids'].append(99)
+                remote[MISSION_RECEIPT] = dict(id=99, name=MISSION_RECEIPT, size=len(content), state='uploaded',
+                                               digest='sha256:' + sha)
+                receipts[MISSION_RECEIPT] = content
+                (Path(folder)/MISSION_RECEIPT).write_bytes(content)
+                data.pop('native_payload')
+                data['dmg_acceptance']['mounted_diagnostic']['native_engine_included'] = True
+                if problem:
+                    with self.assertRaisesRegex(ValueError, 'installed mission'):
+                        release.validate(data, draft, remote, receipts)
+                    with self.assertRaisesRegex(ValueError, 'installed mission'):
+                        verify(data, folder)
+                else:
+                    self.assertEqual(release.validate(data, draft, remote, receipts)['revision'], data['source_revision'])
+                    verify(data, folder)
+
     def test_submerged_mission_exception_is_explicit_and_limited_to_0618(self):
         data, draft, remote, receipts = self.fixture('0.6.18')
         native = data['native_acceptance']
@@ -77,7 +131,13 @@ class DirectPublication(unittest.TestCase):
                 with self.assertRaises(ValueError):release.validate(data, draft, remote, receipts)
 
     def test_finalizer_downloads_only_receipts_and_promotion_retry_is_noop(self):
-        data, draft, remote, receipts = self.fixture()
+        data, draft, remote, receipts, mission = self.mission_fixture()
+        mission_content = json.dumps(mission).encode()
+        name = release.MISSION_RECEIPT
+        sha = hashlib.sha256(mission_content).hexdigest()
+        data['assets'].append(dict(name=name, bytes=len(mission_content), sha256=sha, asset_id=99))
+        data['upload_verification']['asset_ids'].append(99)
+        remote[name] = dict(name=name, state='uploaded', id=99, size=len(mission_content), digest='sha256:' + sha)
         for index, (kind, receipt) in enumerate(receipts.items()):
             content = json.dumps(receipt).encode()
             remote['release-build-' + kind + '.json'] = dict(name='release-build-' + kind + '.json', id=index + 100,
@@ -94,7 +154,8 @@ class DirectPublication(unittest.TestCase):
             name = args[args.index('--pattern') + 1]
             downloads.append(name)
             kind = name.removeprefix('release-build-').removesuffix('.json')
-            Path(args[args.index('--output') + 1]).write_bytes(json.dumps(receipts[kind]).encode())
+            content = mission_content if name == release.MISSION_RECEIPT else json.dumps(receipts[kind]).encode()
+            Path(args[args.index('--output') + 1]).write_bytes(content)
         with tempfile.TemporaryDirectory() as folder, patch.object(release, 'api', side_effect=api), \
                 patch.object(release, 'command', side_effect=command), patch.dict(os.environ,
                 dict(GITHUB_REPOSITORY=release.REPOSITORY, GITHUB_REF='refs/heads/main')):
@@ -102,11 +163,14 @@ class DirectPublication(unittest.TestCase):
             try:
                 release.publish(data, 'Tested release')
                 release.publish(data, 'Tested release')
-                self.assertEqual(Path('release-tag.txt').read_text(), 'v0.6.3')
+                self.assertEqual(Path('release-tag.txt').read_text(), 'v0.6.20')
+                mission_content += b' '
+                with self.assertRaisesRegex(ValueError, 'receipt bytes differ'):
+                    release.publish(data, 'Changed receipt')
             finally:os.chdir(previous)
         self.assertEqual(len(calls), 1)
-        self.assertTrue(all(name.startswith('release-build-') and name.endswith('.json') for name in downloads))
-        self.assertEqual(len(downloads), 6)
+        self.assertTrue(all(name == release.MISSION_RECEIPT or (name.startswith('release-build-') and name.endswith('.json')) for name in downloads))
+        self.assertEqual(downloads.count(release.MISSION_RECEIPT), 3)
 
 
 if __name__ == '__main__':
