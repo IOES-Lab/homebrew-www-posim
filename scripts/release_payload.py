@@ -1,10 +1,56 @@
 """Verify that public download parts reconstruct the acceptance-tested engine."""
 import hashlib
+import json
 from pathlib import Path
 import re
 
 
+MISSION_TAG = 'v0.6.20'
+MISSION_RECEIPT = 'release-installed-missions.json'
+MAX_RECEIPT_BYTES = 512 * 1024
+
+
+def verify_installed_missions(data, content):
+    """Bind the private producer's raw-replay result to this public candidate."""
+    if data['tag'] != MISSION_TAG:
+        return
+    entries = [entry for entry in data['assets'] if entry['name'] == MISSION_RECEIPT]
+    if (not isinstance(content, bytes) or not 0 < len(content) <= MAX_RECEIPT_BYTES
+            or len(entries) != 1 or entries[0]['bytes'] != len(content)
+            or hashlib.sha256(content).hexdigest() != entries[0]['sha256']):
+        raise ValueError('Missing or changed installed mission receipt')
+    try:
+        receipt = json.loads(content)
+        dmg = data['dmg_acceptance']
+        native = data['native_acceptance']
+        expected = dict(policy='bluerov2-installed-2p1-v1', version=MISSION_TAG[1:],
+                        platform='macos-arm64', source_revision=data['source_revision'], posim_revision=data['posim_revision'],
+                        dmg=dmg['dmg'], dmg_sha256=dmg['sha256'], engine_sha256=dmg['engine_sha256'],
+                        launcher_sha256=dmg['mounted_executable_sha256'])
+        trials = receipt['trials']
+        if (any(receipt[key] != value for key, value in expected.items())
+                or not re.fullmatch(r'[a-f0-9]{40}', expected['source_revision'])
+                or not re.fullmatch(r'[a-f0-9]{40}', receipt['posim_revision'])
+                or any(not re.fullmatch(r'[a-f0-9]{64}', receipt[key]) for key in
+                       ('dmg_sha256', 'engine_sha256', 'launcher_sha256', 'suite_sha256'))
+                or expected['launcher_sha256'] != dmg['app_executable_sha256']
+                or expected['engine_sha256'] != native['tested_archive_sha256']
+                or [row['outcome'] for row in trials] != ['completed', 'completed', 'dvl_stale']):
+            raise ValueError('The installed mission receipt differs from this candidate')
+        for key in ('nonce_sha256', 'mission_sha256', 'samples_sha256'):
+            values = {row[key] for row in trials}
+            if len(values) != 3 or any(not re.fullmatch(r'[a-f0-9]{64}', value) for value in values):
+                raise ValueError('The installed mission trial identities or samples differ')
+    except (KeyError, TypeError, UnicodeError, json.JSONDecodeError) as error:
+        raise ValueError('Malformed installed mission receipt') from error
+
+
 def verify(data, folder):
+    if data['tag'] == MISSION_TAG:
+        path = Path(folder) / MISSION_RECEIPT
+        if not path.is_file() or path.stat().st_size > MAX_RECEIPT_BYTES:
+            raise ValueError('Missing or oversized installed mission receipt')
+        verify_installed_missions(data, path.read_bytes())
     diagnostic=data['dmg_acceptance']['mounted_diagnostic']
     if diagnostic.get('publishable') is False or diagnostic.get('edition','release')!='release':
         raise ValueError('Local development packages cannot be published')

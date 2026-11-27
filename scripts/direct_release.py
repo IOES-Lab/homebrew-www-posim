@@ -7,6 +7,8 @@ import re
 import subprocess
 import tempfile
 
+from release_payload import MAX_RECEIPT_BYTES, MISSION_RECEIPT, MISSION_TAG, verify_installed_missions
+
 REPOSITORY = 'IOES-Lab/homebrew-www-posim'
 SOURCE = 'IOES-Lab/WWW-POSIM'
 MARKER = '<!-- www-posim-release: '
@@ -130,6 +132,7 @@ def validate(data, release, remote, receipts):
             value = receipt['files'][0]
             if name not in values or any(value[key] != values[name][key] for key in ('bytes', 'sha256', 'asset_id')):
                 raise ValueError('Producer package differs from final manifest')
+    verify_installed_missions(data, receipts.get(MISSION_RECEIPT))
     validate_acceptance(data)
     return expected
 
@@ -152,10 +155,12 @@ def publish(data, notes):
         raise ValueError('Asset page limit exceeded')
     receipts = {}
     with tempfile.TemporaryDirectory(prefix='www-posim-receipts-') as folder:
-        for kind in ('windows', 'linux', 'images'):
-            name = 'release-build-' + kind + '.json'
+        names = {kind: 'release-build-' + kind + '.json' for kind in ('windows', 'linux', 'images')}
+        if data['tag'] == MISSION_TAG:
+            names[MISSION_RECEIPT] = MISSION_RECEIPT
+        for kind, name in names.items():
             value = remote.get(name)
-            if not value or not 0 < value['size'] <= 512 * 1024:
+            if not value or not 0 < value['size'] <= MAX_RECEIPT_BYTES:
                 raise ValueError('Missing producer receipt')
             path = Path(folder) / name
             command('release', 'download', data['tag'], '--repo', REPOSITORY,
@@ -163,7 +168,7 @@ def publish(data, notes):
             content = path.read_bytes()
             if len(content) != value['size'] or 'sha256:' + hashlib.sha256(content).hexdigest() != value.get('digest'):
                 raise ValueError('Producer receipt bytes differ')
-            receipts[kind] = json.loads(content)
+            receipts[kind] = content if name == MISSION_RECEIPT else json.loads(content)
     expected = validate(data, release, remote, receipts)
     latest = api('repos/' + REPOSITORY + '/releases/latest')
     version = lambda tag: tuple(map(int, tag.removeprefix('v').split('.')))
